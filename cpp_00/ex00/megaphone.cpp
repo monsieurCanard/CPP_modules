@@ -3,36 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 13:21:25 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/06/12 17:52:02 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/06/13 15:06:39 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 
-using std::string;
-using std::toupper;
-using std::cout;
-using std::endl;
+using namespace std;
 
 static void	megaphone(string line = NULL)
 {
 	for (size_t i = 0; i < line.length(); i++) {
-		cout << (char)toupper(line[i]);
+		std::cout << (char)toupper(line[i]);
 	}
 	return ;
 }
 
 int main(int ac, char **av)
 {
-	if (ac == 1) cout << "* LOUD AND UNBEARABLE FEEBACK NOISE *\n";
+	if (ac == 1) std::cout << "* LOUD AND UNBEARABLE FEEBACK NOISE *" << std::endl;
 	else {
 		for (int i = 1; i < ac; i++)
 			megaphone(av[i]);
 	}
-	cout << endl;
+	std::cout << std::endl;
 	return (0);
 }

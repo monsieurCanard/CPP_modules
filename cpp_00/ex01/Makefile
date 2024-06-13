@@ -3,18 +3,22 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+         #
+#    By: anthony <anthony@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 13:21:10 by Monsieur_Ca       #+#    #+#              #
-#    Updated: 2024/06/12 13:22:34 by Monsieur_Ca      ###   ########.fr        #
+#    Updated: 2024/06/13 16:04:53 by anthony          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME = phonebook
 
-SRC = megaphone.cpp
+SRC	= phonebook.cpp \
+		contact.cpp \
+		main.cpp
 
 OBJ = $(SRC:.cpp=.o)
+
+HEADERS = $(SRC:.cpp=.hpp)
 
 CXX = c++ -Wall -Wextra -Werror -std=c++98
 
@@ -23,7 +27,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CXX) $(OBJ) -o $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp $(HEADERS)
 	$(CXX) -c $< -o $@
 
 clean:

@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/12 15:10:23 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/06/13 16:13:17 by anthony          ###   ########.fr       */
+/*   Created: 2024/06/13 15:57:49 by anthony           #+#    #+#             */
+/*   Updated: 2024/06/13 16:54:34 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOK_HPP
-#define PHONEBOOK_HPP
-
-#include "Contact.hpp"
 #include <iostream>
+#include "Contact.hpp"
 
-class PhoneBook {
-
-	public:
-		PhoneBook();
-		~PhoneBook();
-
-	private:
+Contact::Contact(const int index){
+	
+	this->index = index;
 };
 
-#endif
+Contact::~Contact(){
+	
+};
+
+int Contact::get_index(){
+	return this->index;
+};
+
