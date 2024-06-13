@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 16:02:04 by anthony           #+#    #+#             */
-/*   Updated: 2024/06/13 16:54:45 by anthony          ###   ########.fr       */
+/*   Updated: 2024/06/13 17:07:56 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,15 @@
 #include <cstdio>
 #include <string.h>
 
-static void	menuPhonebook(void)
-{
-	std::cout << "----------------------------" << std::endl;
-	std::cout << "   Welcome in PhoneBook !" << std::endl;
-	std::cout << "----------------------------" << std::endl;
-	std::cout << "Please enter one of these 3 commands :" << std::endl;
-	std::cout << "ADD : Save a new contact" << std::endl;
-	std::cout << "SEARCH : Display a specific contact" << std::endl;
-	std::cout << "EXIT" << std::endl;
-}
+
 
 int main(void)
 {
-	menuPhonebook();
-	std::string line;
 	PhoneBook phonebook;
+	std::string line;
 	int	index = 0;
 	
+	phonebook.display_phonebook();
 	while (true)
 	{
 		Contact contact = index;
