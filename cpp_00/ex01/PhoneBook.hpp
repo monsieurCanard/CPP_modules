@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:10:23 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/06/13 17:07:07 by anthony          ###   ########.fr       */
+/*   Updated: 2024/06/14 18:16:24 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOK_HPP
+#ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 
 #include "Contact.hpp"
@@ -21,9 +21,13 @@ class PhoneBook {
 	public:
 		PhoneBook();
 		~PhoneBook();
-		void display_phonebook(void);
+		void DisplayPhonebook(void);
+		void AddContact(int index);
+		void DisplayContact(int index);
+		void CreateContact();
 
 	private:
+		Contact contact[8];
 };
 
 #endif

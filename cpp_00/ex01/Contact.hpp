@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:17:55 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/06/13 16:50:48 by anthony          ###   ########.fr       */
+/*   Updated: 2024/06/14 18:10:56 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,28 @@
 class Contact {
 	
 	public:
-		Contact(const int index);
+		Contact();
 		~Contact();
-		int		get_index();
-		void	set_contact(const int index);
+		int		GetIndex();
+		// void	SetContact(const int index);
+		void	SetFirstName(const char *line);
+		void	SetLastName(const char *line);
+		void	SetNickname(const char *line);
+		void	SetPhoneNumber(const char *line);
+		void	SetSecret(const char *line);
+		char	*GetFirstName();
+		char	*GetLastName();
+		char	*GetNickname();
+		char	*GetPhoneNumber();
+		char	*GetSecret();
 
 	private:
-		int	index;
-		std::string first_name;
-		std::string last_name;
-		std::string nickname;
-		std::string phone_number;
-		std::string secret;
+		int		index;
+		char	*first_name;
+		char	*last_name;
+		char	*nickname;
+		char	*phone_number;
+		char	*secret;
 };
 
 #endif
