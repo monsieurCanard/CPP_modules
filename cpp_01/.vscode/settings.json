@@ -14,10 +14,8 @@
 		"cstdint": "cpp",
 		"cstdio": "cpp",
 		"cstdlib": "cpp",
-		"cstring": "cpp",
 		"cwchar": "cpp",
 		"cwctype": "cpp",
-		"deque": "cpp",
 		"string": "cpp",
 		"unordered_map": "cpp",
 		"vector": "cpp",
@@ -27,13 +25,13 @@
 		"iterator": "cpp",
 		"memory": "cpp",
 		"memory_resource": "cpp",
-		"numeric": "cpp",
 		"random": "cpp",
 		"string_view": "cpp",
 		"system_error": "cpp",
 		"tuple": "cpp",
 		"type_traits": "cpp",
 		"utility": "cpp",
+		"fstream": "cpp",
 		"initializer_list": "cpp",
 		"iosfwd": "cpp",
 		"iostream": "cpp",
@@ -46,8 +44,9 @@
 		"streambuf": "cpp",
 		"typeinfo": "cpp",
 		"ctime": "cpp",
+		"deque": "cpp",
+		"numeric": "cpp",
 		"iomanip": "cpp",
-		"sstream": "cpp",
-		"fstream": "cpp"
+		"sstream": "cpp"
 	}
 }

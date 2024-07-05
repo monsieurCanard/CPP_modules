@@ -6,18 +6,17 @@
 #    By: anthony <anthony@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 13:21:10 by Monsieur_Ca       #+#    #+#              #
-#    Updated: 2024/07/05 08:42:40 by anthony          ###   ########.fr        #
+#    Updated: 2024/07/05 15:11:23 by anthony          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook
+NAME = zombiehorde
 
 SRC_DIR = sources/
 OBJ_DIR = obj/
 
-SRC	=	$(SRC_DIR)phonebook.cpp			\
-		$(SRC_DIR)phonebook_utils.cpp	\
-		$(SRC_DIR)contact.cpp			\
+SRC	=	$(SRC_DIR)Zombie.cpp		\
+		$(SRC_DIR)zombieHorde.cpp		\
 		$(SRC_DIR)main.cpp
 
 OBJ = $(SRC:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
@@ -30,7 +29,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(CXX) $(OBJ) -o $(NAME)
-	@echo "Phonebook Ready !!"
+	@echo "Program Ready !!"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp $(HEADERS)
 	@mkdir -p $(OBJ_DIR)
