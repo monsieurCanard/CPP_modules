@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:17:55 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/06/14 18:10:56 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/04 16:42:55 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,29 +18,29 @@
 
 class Contact {
 	
+	private:
+		int			index;
+		std::string	first_name;
+		std::string	last_name;
+		std::string	nickname;
+		std::string	phone_number;
+		std::string	secret;
+
 	public:
 		Contact();
 		~Contact();
-		int		GetIndex();
-		// void	SetContact(const int index);
-		void	SetFirstName(const char *line);
-		void	SetLastName(const char *line);
-		void	SetNickname(const char *line);
-		void	SetPhoneNumber(const char *line);
-		void	SetSecret(const char *line);
-		char	*GetFirstName();
-		char	*GetLastName();
-		char	*GetNickname();
-		char	*GetPhoneNumber();
-		char	*GetSecret();
-
-	private:
-		int		index;
-		char	*first_name;
-		char	*last_name;
-		char	*nickname;
-		char	*phone_number;
-		char	*secret;
+		void	SetIndex(int index);
+		void	SetFirstName(std::string line);
+		void	SetLastName(std::string line);
+		void	SetNickname(std::string line);
+		void	SetPhoneNumber(std::string line);
+		void	SetSecret(std::string line);
+		int		GetIndex() const;
+		std::string	GetFirstName() const;
+		std::string	GetLastName() const;
+		std::string	GetNickname() const;
+		std::string	GetPhoneNumber() const;
+		std::string	GetSecret() const;
 };
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:10:23 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/06/14 18:16:24 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/04 16:28:31 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,19 @@
 
 #include "Contact.hpp"
 #include <iostream>
+#include <cstdlib>
+#include <cstdio>
+#include <string.h>
 
 class PhoneBook {
 
 	public:
 		PhoneBook();
 		~PhoneBook();
-		void DisplayPhonebook(void);
 		void AddContact(int index);
+		void GetContact();
+		void DisplayAllContacts();
 		void DisplayContact(int index);
-		void CreateContact();
-
 	private:
 		Contact contact[8];
 };
