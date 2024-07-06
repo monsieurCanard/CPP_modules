@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 11:55:41 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/04 16:44:06 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/06 13:18:26 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ std::string	GetAnswer(std::string needed) {
 	
 	while (true)
 	{
-		std::cout << "Enter your ";
-		std::cout << needed;
-		std::cout << " : " << std::endl;
+		std::cout << "Enter your " << needed << " : " << std::endl;
 		std::getline(std::cin, line);
 		if (line.length() == 0) {
 			std::cout << "Invalid answer please retry..." << std::endl;
@@ -41,16 +39,14 @@ int	GetIndex() {
 		std::getline(std::cin, line);
 		if (line.length() == 1 && std::isdigit(line[0])) {
 			index = line[0] - '0';
-			if (index >= 0 && index < 9)
-				return index;
+			if (index >= 0 && index < 9) return index;
 		}
 		std::cout << "Invalid index please retry..." << std::endl;
 	}
 }
 
 void	DisplayTruncLine(std::string line) {
-	std::cout << line.substr(0, 9);
-	std::cout << ".";
+	std::cout << line.substr(0, 9) << ".";
 }
 
 void	DisplaySpaceLine(std::string line, int space) {
@@ -60,11 +56,10 @@ void	DisplaySpaceLine(std::string line, int space) {
 }
 
 void	DisplayLine(std::string line) {
+	
 	int	space = 10 - line.length();
-	if (space == 0)
-		std::cout << line;
-	else if (space < 0)
-		DisplayTruncLine(line);
-	else if (space > 0)
-		DisplaySpaceLine(line, space);
+	
+	if (space == 0) std::cout << line;
+	else if (space < 0) DisplayTruncLine(line);
+	else if (space > 0) DisplaySpaceLine(line, space);
 }

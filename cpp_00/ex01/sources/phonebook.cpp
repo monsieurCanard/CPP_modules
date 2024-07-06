@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 17:55:17 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/04 16:27:35 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/06 13:20:38 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,7 @@ void PhoneBook::DisplayAllContacts(void) {
 	std::cout << "---------------------------------------------" << std::endl;
 	while (index < 8 && !contact[index].GetFirstName().empty())
 	{
-		std::cout << "|         ";
-		std::cout << contact[index].GetIndex();
-		std::cout << "|";
+		std::cout << "|         " << contact[index].GetIndex() << "|";
 		DisplayLine(contact[index].GetFirstName());
 		std::cout << "|";
 		DisplayLine(contact[index].GetLastName());
