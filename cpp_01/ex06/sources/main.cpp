@@ -5,30 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/13 16:02:04 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/08 09:26:57 by Monsieur_Ca      ###   ########.fr       */
+/*   Created: 2024/07/08 10:31:40 by Monsieur_Ca       #+#    #+#             */
+/*   Updated: 2024/07/08 10:34:53 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "Harl.hpp"
 
-
-int main(void)
+int main(int ac, char **av)
 {
-	PhoneBook phonebook;
-	std::string line;
-	int	index = 0;
-	
-	while (true)
-	{
-		std::cout << "Please enter a command :" << std::endl;
-		std::getline(std::cin, line);
 
-		if (std::cin.eof())
-			break ;
-		else if (strcmp(line.c_str(), "EXIT") == 0) break ;
-		else if (strcmp(line.c_str(), "ADD") == 0) phonebook.AddContact(index++);
-		else if (strcmp(line.c_str(), "SEARCH") == 0) phonebook.GetContact();
-	}
-	return (0);
+	Harl harl;
+	std::string level;
+
+	if (ac != 2)
+		return (1);
+	level = av[1];
+	harl.complain(level);
 }

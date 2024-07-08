@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook_utils.hpp                                :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/04 11:56:58 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/08 10:05:51 by Monsieur_Ca      ###   ########.fr       */
+/*   Created: 2024/07/08 12:15:05 by Monsieur_Ca       #+#    #+#             */
+/*   Updated: 2024/07/08 12:48:28 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef PHONEBOOK_UTILS_HPP
-# define PHONEBOOK_UTILS_HPP
+# ifndef FIXED_HPP
+# define FIXED_HPP
 
-#include "PhoneBook.hpp"
+#include <iostream>
+#include <string.h>
 
-#include <stdlib.h>
+class Fixed
+{
+	private:
+	int					nb_fixed;
+	static const int	nb_fract = 8;
+	
+	public:
+		Fixed();
+		~Fixed();
+		Fixed(const Fixed& src);
+		Fixed& operator=(const Fixed &src);
+		int		getRawBits() const;
+		void	setRawBits(int const raw);
+};
 
-void		DisplayLine(std::string line);
-std::string	GetAnswer(std::string needed);
-int			GetIndex();
+
 
 #endif

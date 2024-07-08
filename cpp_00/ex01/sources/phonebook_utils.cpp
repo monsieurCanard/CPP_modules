@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook_utils.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 11:55:41 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/06 13:18:26 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/08 15:21:11 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,22 @@ std::string	GetAnswer(std::string needed) {
 	{
 		std::cout << "Enter your " << needed << " : " << std::endl;
 		std::getline(std::cin, line);
-		if (line.length() == 0) {
-			std::cout << "Invalid answer please retry..." << std::endl;
-			continue ;
+
+		if (std::cin.eof()){
+			exit (0);
 		}
-		return (line);
+		if (line.length() != 0) {
+			for (size_t i = 0; i < line.length(); i++) {
+				if (isalnum(line[i]) == 0) {
+					std::cout << "Invalid answer please retry..." << std::endl;
+					break ;
+				}
+			}
+		}
+		std::cout << "Invalid answer please retry..." << std::endl;
+		continue;
 	}
+	return (line);
 }
 
 int	GetIndex() {
@@ -37,7 +47,9 @@ int	GetIndex() {
 	{
 		std::cout << "Please enter an index :" << std::endl;
 		std::getline(std::cin, line);
-		if (line.length() == 1 && std::isdigit(line[0])) {
+		if (std::cin.eof())
+			exit (0);
+		else if (line.length() == 1 && std::isdigit(line[0])) {
 			index = line[0] - '0';
 			if (index >= 0 && index < 9) return index;
 		}

@@ -5,30 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/13 16:02:04 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/08 09:26:57 by Monsieur_Ca      ###   ########.fr       */
+/*   Created: 2024/07/08 12:13:57 by Monsieur_Ca       #+#    #+#             */
+/*   Updated: 2024/07/08 14:15:09 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
-
+#include <iostream>
+#include "Fixed.hpp"
 
 int main(void)
 {
-	PhoneBook phonebook;
-	std::string line;
-	int	index = 0;
-	
-	while (true)
-	{
-		std::cout << "Please enter a command :" << std::endl;
-		std::getline(std::cin, line);
+	Fixed a;
+	Fixed const b(10);
+	Fixed const c(42.42f);
+	Fixed const d(b);
 
-		if (std::cin.eof())
-			break ;
-		else if (strcmp(line.c_str(), "EXIT") == 0) break ;
-		else if (strcmp(line.c_str(), "ADD") == 0) phonebook.AddContact(index++);
-		else if (strcmp(line.c_str(), "SEARCH") == 0) phonebook.GetContact();
-	}
-	return (0);
+	a = Fixed(1234.4321f);
+
+	std::cout << "a is " << a << std::endl;
+	std::cout << "b is " << b << std::endl;
+	std::cout << "c is " << c << std::endl;
+	std::cout << "d is " << d << std::endl;
+
+	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
+	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	return 0;
 }
