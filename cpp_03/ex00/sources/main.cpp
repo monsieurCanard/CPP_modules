@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/05 10:17:38 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/09 17:29:03 by anthony          ###   ########.fr       */
+/*   Created: 2024/07/09 18:07:16 by anthony           #+#    #+#             */
+/*   Updated: 2024/07/09 18:24:36 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "ClapTrap.hpp"
 
-void	Zombie::setName(std::string name) {
-	this->name = name;
-}
+int	main(void) {
 
-Zombie* Zombie::zombieHorde(int n, std::string name) {
-	
-	Zombie* horde = new Zombie[n];
-	while (--n >= 0)
-	{
-		horde[n].setName(name);
-	}
-	return horde;
+	ClapTrap	francis("francis");
+	ClapTrap	michel("michel");
+
+	michel.attack("francis");
+	francis.takeDamage(1);
+
+	francis.attack("michel");
+	michel.takeDamage(1);
+
+	francis.beRepaired(1);
+
+	francis.attack("michel");
+	michel.takeDamage(1);
+
+	michel.displayInfo();
+	francis.displayInfo();
 }
