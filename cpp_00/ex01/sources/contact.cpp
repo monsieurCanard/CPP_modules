@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 15:57:49 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/04 16:30:46 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/09 16:52:16 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Contact::Contact(){
 Contact::~Contact(){
 };
 
+///////SETTER
 void	Contact::SetIndex(int index) {
 	this->index = index;
 }
@@ -48,6 +49,7 @@ void	Contact::SetSecret(std::string line)
 
 }
 
+///////GETTER
 int	Contact::GetIndex() const {
 	return this->index;
 }

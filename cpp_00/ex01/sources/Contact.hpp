@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:17:55 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/04 16:42:55 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/09 16:52:36 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class Contact {
 		void	SetNickname(std::string line);
 		void	SetPhoneNumber(std::string line);
 		void	SetSecret(std::string line);
-		int		GetIndex() const;
+		int			GetIndex() const;
 		std::string	GetFirstName() const;
 		std::string	GetLastName() const;
 		std::string	GetNickname() const;

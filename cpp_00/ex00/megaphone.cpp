@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 13:21:25 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/06/13 15:06:39 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/09 16:50:55 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ static void	megaphone(string line = NULL)
 	for (size_t i = 0; i < line.length(); i++) {
 		std::cout << (char)toupper(line[i]);
 	}
-	return ;
 }
 
 int main(int ac, char **av)

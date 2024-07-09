@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 16:02:04 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/08 09:26:57 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/09 16:51:34 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
 
-int main(void)
+int	main(void)
 {
-	PhoneBook phonebook;
-	std::string line;
-	int	index = 0;
+	PhoneBook	phonebook;
+	std::string	line;
+	int			index = 0;
 	
 	while (true)
 	{

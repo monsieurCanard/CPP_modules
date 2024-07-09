@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 17:55:17 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/08 14:22:07 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/09 16:53:10 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ PhoneBook::~PhoneBook(){
 void PhoneBook::AddContact(int index) {
 	
 	std::string line;
-	
+
 	contact[index].SetIndex(index);
-	
+
 	line = GetAnswer("First Name");
 	contact[index].SetFirstName(line);
 
