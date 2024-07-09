@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 12:15:05 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/08 16:46:28 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/09 11:00:14 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,21 @@ class Fixed
 		Fixed&	operator-(const Fixed &src);
 		Fixed&	operator*(const Fixed &src);
 		Fixed&	operator/(const Fixed &src);
+		Fixed&	operator++();
+		Fixed	operator++(int);
+		Fixed&	operator--();
+		Fixed	operator--(int);
 
-		int				toInt() const;
-		float			toFloat() const;
-		int				getRawBits() const;
-		void			setRawBits(int const raw);
-		static Fixed&	min(Fixed &nb1, int &nb2);
-		static Fixed&	min_const(const Fixed &nb1, const Fixed &nb2);
-		static Fixed&	max(Fixed &nb1, Fixed &nb2);
-		static Fixed&	max_const(const Fixed &nb1, const Fixed &nb2);
+
+
+		int					toInt() const;
+		float				toFloat() const;
+		int					getRawBits() const;
+		void				setRawBits(int const raw);
+		static Fixed&		min(Fixed &nb1, Fixed &nb2);
+		static const Fixed&	min(const Fixed &nb1, const Fixed &nb2);
+		static Fixed&		max(Fixed &nb1, Fixed &nb2);
+		static const Fixed&	max(const Fixed &nb1, const Fixed &nb2);
 };
 
 std::ostream& operator<<(std::ostream &os, const Fixed &src);

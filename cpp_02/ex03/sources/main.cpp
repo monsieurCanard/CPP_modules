@@ -3,33 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 12:13:57 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/08 14:15:09 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/09 13:32:39 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Fixed.hpp"
+#include "Point.hpp"
 
-int main(void)
-{
-	Fixed a;
-	Fixed const b(10);
-	Fixed const c(42.42f);
-	Fixed const d(b);
+int main( void ) {
 
-	a = Fixed(1234.4321f);
+	Point	a(0.5f, 5.5f);
+	Point	b(6.6f, 10.5f);
+	Point	c;
+	Point	point(16.2f, 26.9f);
 
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
-
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	if (bsp(a, b, c, point)) {
+		std::cout << "Le point est dans le triangle !"
+					<< std::endl;
+	}
+	else {
+		std::cout << "Le point est pas dans le triangle !"
+					<< std::endl;
+	}
 	return 0;
 }

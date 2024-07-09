@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook_utils.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 11:55:41 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/08 15:21:11 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/09 10:32:23 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ std::string	GetAnswer(std::string needed) {
 	
 	while (true)
 	{
-		std::cout << "Enter your " << needed << " : " << std::endl;
+		std::cout	<< "Enter your " << needed << " : "
+					<< std::endl;
 		std::getline(std::cin, line);
 
 		if (std::cin.eof()){
@@ -27,12 +28,14 @@ std::string	GetAnswer(std::string needed) {
 		if (line.length() != 0) {
 			for (size_t i = 0; i < line.length(); i++) {
 				if (isalnum(line[i]) == 0) {
-					std::cout << "Invalid answer please retry..." << std::endl;
 					break ;
 				}
+			return line;
 			}
 		}
-		std::cout << "Invalid answer please retry..." << std::endl;
+		std::cout	<< std::endl
+					<< "Invalid answer please retry..."
+					<< std::endl;
 		continue;
 	}
 	return (line);
