@@ -6,7 +6,7 @@
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 17:32:02 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/10 12:37:13 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/10 13:45:43 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,13 @@
 
 class ClapTrap
 {
-	private:
+	protected:
 		std::string	name;
 		int			hit_points;
 		int			energy_points;
 		int			attack_damage;
 
 	public:
-		ClapTrap();
 		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap& src);
 		~ClapTrap();
