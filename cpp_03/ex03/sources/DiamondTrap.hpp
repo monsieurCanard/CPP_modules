@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 11:22:22 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/10 16:18:14 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/10 17:02:43 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
-
 
 class	DiamondTrap : public ScavTrap , public FragTrap {
 

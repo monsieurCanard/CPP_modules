@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+         #
+#    By: anthony <anthony@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 13:21:10 by Monsieur_Ca       #+#    #+#              #
-#    Updated: 2024/07/10 09:10:59 by Monsieur_Ca      ###   ########.fr        #
+#    Updated: 2024/07/10 17:20:00 by anthony          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
