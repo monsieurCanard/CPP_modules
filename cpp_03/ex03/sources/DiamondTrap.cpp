@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 11:28:19 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/10 12:06:07 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/10 16:27:34 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(std::string name) : ScavTrap(name), FragTrap(name) {
+DiamondTrap::DiamondTrap(std::string name) : ScavTrap(name + "_clap_name"), FragTrap(name + "_clap_name") {
 	
+	hit_points = FragTrap::hit_points;
+	energy_points = ScavTrap::energy_points;
+	attack_damage = FragTrap::attack_damage;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 08:55:02 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/10 12:59:58 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/10 15:47:53 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
-{
+class ScavTrap : public ClapTrap {
+
 	private:
 
 	public:
@@ -31,8 +31,5 @@ class ScavTrap : public ClapTrap
 		void	guardGate();
 		void	attack(const std::string &target);
 };
-
-
-
 
 # endif

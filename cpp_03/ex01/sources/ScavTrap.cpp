@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 08:59:20 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/10 13:42:22 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/10 15:56:26 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ ScavTrap::~ScavTrap() {
 	std::cout << "Destructor of ScavTrap called" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &src) {
+ScavTrap::ScavTrap(const ScavTrap &src) : ClapTrap(src) {
 	*this = src;
 }
 
@@ -48,7 +48,7 @@ void ScavTrap::attack(const std::string &target)
 {
 	if (energy_points == 0)
 		std::cout << "ScavTrap " << name << " doesn't have enought energy points" << std::endl;
-	else if (hit_points == 0)
+	else if (hit_points <= 0)
 		std::cout << "ScavTrap " << name << " cannot attack because he's dead !" << std::endl;
 	else
 	{
@@ -56,6 +56,7 @@ void ScavTrap::attack(const std::string &target)
 		energy_points--;
 	}
 }
+
 void	ScavTrap::guardGate() {
 	std::cout << "ScavTrap " << name << " is now in gate keeper mode !" << std::endl;
 }

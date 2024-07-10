@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 11:06:38 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/10 13:40:13 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/10 16:13:54 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name) {
 	std::cout << "Constructor of FragTrap called" << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap& src) {
+FragTrap::FragTrap(const FragTrap& src) : ClapTrap(src) {
 	*this = src;
 }
 
@@ -43,6 +43,7 @@ FragTrap& FragTrap::operator=(const FragTrap &src) {
 }
 
 FragTrap::~FragTrap() {
+	std::cout << "Destructor of FragTrap called" << std::endl;
 }
 
 void	FragTrap::highFivesGuys() {

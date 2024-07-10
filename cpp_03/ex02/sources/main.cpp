@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 18:07:16 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/10 11:17:46 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/10 16:12:30 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,39 @@ int	main(void) {
 
 	ClapTrap	francis("francis");
 	ScavTrap	michel("michel");
-	FragTrap	evelyne("evelyne");
+	FragTrap	unknown;
 
-	francis.attack("michel");
-	michel.takeDamage(1);
+	std::cout << std::endl;
+	unknown.setName("evelyne");
+	unknown.setHitPoints(100);
+	unknown.setEnergyPoints(100);
+	unknown.setAttackDamage(30);
 
-	francis.attack("michel");
-	michel.takeDamage(1);
+	std::cout << std::endl;
+	michel.attack(francis.getName());
+	francis.takeDamage(michel.getAttackDamage());
 
+	std::cout << std::endl;
+	francis.attack(michel.getName());
+	michel.takeDamage(francis.getAttackDamage());
+
+	std::cout << std::endl;
 	francis.beRepaired(1);
-
+	
+	std::cout << std::endl;
 	michel.guardGate();
 
-	evelyne.highFivesGuys();
+	std::cout << std::endl;
+	francis.attack(michel.getName());
+	michel.takeDamage(francis.getAttackDamage());
 
-	michel.attack("francis");
-	francis.takeDamage(1);
+	std::cout << std::endl;
+	unknown.attack(michel.getName());
+	michel.takeDamage(unknown.getAttackDamage());
 
-	evelyne.attack("francis");
-	francis.takeDamage(30);
-
+	std::cout << std::endl;
+	unknown.displayInfo();
 	michel.displayInfo();
 	francis.displayInfo();
-	evelyne.displayInfo();
+	std::cout << std::endl;
 }

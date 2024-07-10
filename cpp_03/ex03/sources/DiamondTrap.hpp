@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 11:22:22 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/10 13:54:41 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/10 16:18:14 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ class	DiamondTrap : public ScavTrap , public FragTrap {
 		DiamondTrap& operator=(const DiamondTrap &src);
 		
 		void	whoAmI();
-}
-//TODO TROUVER LE MOYEN DE SET ET GET FACILEMENT 
+};
+
 # endif

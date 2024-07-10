@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 18:07:16 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/09 18:24:36 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/10 15:28:03 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,39 @@ int	main(void) {
 
 	ClapTrap	francis("francis");
 	ClapTrap	michel("michel");
+	ClapTrap	unknown;
 
-	michel.attack("francis");
-	francis.takeDamage(1);
+	std::cout << std::endl;
+	unknown.setName("philippe");
+	unknown.setHitPoints(10);
+	unknown.setEnergyPoints(10);
+	unknown.setAttackDamage(1000);
 
-	francis.attack("michel");
-	michel.takeDamage(1);
+	std::cout << std::endl;
+	michel.attack(francis.getName());
+	francis.takeDamage(michel.getAttackDamage());
 
+	std::cout << std::endl;
+	francis.attack(michel.getName());
+	michel.takeDamage(francis.getAttackDamage());
+
+	std::cout << std::endl;
 	francis.beRepaired(1);
 
-	francis.attack("michel");
-	michel.takeDamage(1);
+	std::cout << std::endl;
+	francis.attack(michel.getName());
+	michel.takeDamage(francis.getAttackDamage());
 
+	std::cout << std::endl;
+	unknown.attack(francis.getName());
+	francis.takeDamage(unknown.getAttackDamage());
+
+	std::cout << std::endl;
+	francis.attack(unknown.getName());
+	unknown.takeDamage(francis.getAttackDamage());
+	
+	unknown.displayInfo();
 	michel.displayInfo();
 	francis.displayInfo();
+	std::cout << std::endl;
 }
