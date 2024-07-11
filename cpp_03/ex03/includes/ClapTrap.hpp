@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 17:32:02 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/10 17:05:31 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/11 10:52:27 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class ClapTrap
 
 	public:
 		ClapTrap();
-		ClapTrap(std::string name);
+		ClapTrap(std::string newName);
 		ClapTrap(const ClapTrap& src);
 		~ClapTrap();
 		ClapTrap& operator=(const ClapTrap &src);
@@ -36,15 +36,15 @@ class ClapTrap
 		void	beRepaired(unsigned int amount);
 		void	displayInfo();
 		
-		std::string	getName();
-		int			getHitPoints();
-		int			getEnergyPoints();
-		int			getAttackDamage();
+		virtual std::string	getName();
+		int					getHitPoints();
+		int					getEnergyPoints();
+		int					getAttackDamage();
 
-		void	setName(std::string name);
-		void	setHitPoints(int hit_points);
-		void	setEnergyPoints(int energy_points);
-		void	setAttackDamage(int attack_damage);
+		void	setName(std::string newName);
+		void	setHitPoints(int newHitPoints);
+		void	setEnergyPoints(int newEnergyPoints);
+		void	setAttackDamage(int newAttackDamage);
 };
 
 # endif

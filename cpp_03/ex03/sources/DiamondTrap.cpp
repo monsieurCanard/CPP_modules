@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 11:28:19 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/10 17:09:33 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/11 10:39:35 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), Scav
 	attack_damage = FragTrap::attack_damage;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &src) : ClapTrap(ClapTrap::getName() + "_clap_name"), ScavTrap(ScavTrap::name), FragTrap(FragTrap::name) {
+DiamondTrap::DiamondTrap(const DiamondTrap &src) : ClapTrap(ClapTrap::getName() + "_clap_name"), ScavTrap(src.name), FragTrap(src.name) {
 	*this = src;
 }
 
@@ -40,11 +40,12 @@ DiamondTrap&	DiamondTrap::operator=(const DiamondTrap &src) {
 	if (this != &src) {
 		name = src.name;
 		hit_points = src.hit_points;
-		energy_points = src.energy_points;
+		energy_points = src.energy_points; 
 		attack_damage = src.attack_damage;
 	}
 	return *this;
 }
+
 void	DiamondTrap::whoAmI() {
-	std::cout << "My name is " << name << " and my ClapTrap name is " << ClapTrap::name << std::endl;
+	std::cout << "My name is " << this->name << " and my ClapTrap name is " << ClapTrap::name << std::endl;
 }

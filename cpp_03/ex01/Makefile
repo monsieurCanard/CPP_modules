@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: anthony <anthony@student.42.fr>            +#+  +:+       +#+         #
+#    By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 13:21:10 by Monsieur_Ca       #+#    #+#              #
-#    Updated: 2024/07/10 17:20:00 by anthony          ###   ########.fr        #
+#    Updated: 2024/07/11 10:45:15 by Monsieur_Ca      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME = claptrap
 
 SRC_DIR = sources/
 OBJ_DIR = obj/
+INC_DIR = includes/
 
 SRC	=	$(SRC_DIR)ClapTrap.cpp	\
 		$(SRC_DIR)ScavTrap.cpp	\
@@ -21,9 +22,10 @@ SRC	=	$(SRC_DIR)ClapTrap.cpp	\
 
 OBJ = $(SRC:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
 
-HEADERS = $(wildcard $(SRC_DIR)*.hpp)
 
-CXX = c++ -Wall -Wextra -Werror -std=c++98
+HEADERS = $(wildcard $(INC_DIR)*.hpp)
+
+CXX = c++ -Wall -Wextra -Werror -std=c++98 -I$(INC_DIR)
 
 all: $(NAME)
 

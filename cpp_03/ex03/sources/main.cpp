@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 18:07:16 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/10 17:19:28 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/11 10:32:45 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int	main(void) {
 	diamond.whoAmI();
 	std::cout << std::endl;
 	diamond.attack(michel.getName());	
-	std::cout << std::endl;
 	michel.takeDamage(diamond.getAttackDamage());
 	std::cout << std::endl;
 	diamond.highFivesGuys();
