@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/11 13:57:52 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/11 16:07:49 by anthony          ###   ########.fr       */
+/*   Created: 2024/07/11 17:36:58 by anthony           #+#    #+#             */
+/*   Updated: 2024/07/11 17:50:03 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef ICE_HPP
-# define ICE_HPP
+#include "MateriaSource.hpp"
 
-#include "AMateria.hpp"
-#include "Character.hpp"
+MateriaSource::MateriaSource() {
+}
 
-class Ice : public AMateria {
-	
-	public:
-		Ice();
-		~Ice();
-		Ice(const Ice &copy);
-		Ice &operator=(const Ice &src);
+MateriaSource::~MateriaSource() {
+	for (int i = 0; i < 4; i++)
+		if (_inventory[i])
+			delete _inventory[i];
+}
 
-		AMateria* clone() const;
-};
+MateriaSource& MateriaSource::operator=(const MateriaSource &src) {
+	if (this != &src) {
+		for (int i = 0; i < 4; i++)
+			_inventory[i] = src._inventory[i].clone();
+	}
+	return (*this);
+}
 
-# endif

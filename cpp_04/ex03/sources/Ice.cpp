@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 14:10:03 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/11 14:36:36 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/11 17:04:49 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ Ice& Ice::operator=(const Ice &src) {
 
 AMateria* Ice::clone() const {
 	std::cout << "Ice clone called" << std::endl;
+	if (this)
+		delete this;
 	return new Ice(*this);
 }
 

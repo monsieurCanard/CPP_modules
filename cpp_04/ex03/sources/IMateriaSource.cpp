@@ -1,30 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   IMateriaSource.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/11 13:57:52 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/11 16:07:49 by anthony          ###   ########.fr       */
+/*   Created: 2024/07/11 17:31:20 by anthony           #+#    #+#             */
+/*   Updated: 2024/07/11 17:34:22 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef ICE_HPP
-# define ICE_HPP
-
+#include "IMateriaSource.hpp"
 #include "AMateria.hpp"
-#include "Character.hpp"
 
-class Ice : public AMateria {
-	
-	public:
-		Ice();
-		~Ice();
-		Ice(const Ice &copy);
-		Ice &operator=(const Ice &src);
-
-		AMateria* clone() const;
-};
-
-# endif
+IMateriaSource::~IMateriaSource() {
+}

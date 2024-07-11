@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 14:18:41 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/11 14:33:00 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/11 17:05:02 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,7 @@ Cure::Cure(const Cure& src) {
 
 AMateria* Cure::clone() const {
 	std::cout << "Cure clone called" << std::endl;
+	if (this)
+		delete this;
 	return new Cure(*this);
-}
-
-void Cure::use(ICharacter& target) {
-	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
-	AMateria::use(target);
 }
