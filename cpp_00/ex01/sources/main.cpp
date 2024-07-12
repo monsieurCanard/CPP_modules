@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 16:02:04 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/09 16:51:34 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/12 12:59:17 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@
 int	main(void)
 {
 	PhoneBook	phonebook;
-	std::string	line;
+	std::string	command;
 	int			index = 0;
 	
 	while (true)
 	{
 		std::cout << "Please enter a command :" << std::endl;
-		std::getline(std::cin, line);
+		std::getline(std::cin, command);
 
 		if (std::cin.eof())
 			break ;
-		else if (strcmp(line.c_str(), "EXIT") == 0) break ;
-		else if (strcmp(line.c_str(), "ADD") == 0) phonebook.AddContact(index++);
-		else if (strcmp(line.c_str(), "SEARCH") == 0) phonebook.GetContact();
+		else if (index == 8) index = 0;
+		else if (command == "EXIT" || command == "exit") break ;
+		else if (command == "ADD" || command == "add") phonebook.addContact(index++);
+		else if (command == "SEARCH" || command == "search") phonebook.getContact();
 	}
-	return (0);
 }

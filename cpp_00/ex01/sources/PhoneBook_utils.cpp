@@ -1,17 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook_utils.cpp                                :+:      :+:    :+:   */
+/*   PhoneBook_utils.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 11:55:41 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/09 16:54:33 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/12 12:45:55 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook_utils.hpp"
+#include "PhoneBook.hpp"
 
+/**
+* @brief get the answer of the user and verify if it's a valid answer
+* @param needed element needed
+* @return answer of the user
+*/
 std::string	GetAnswer(std::string needed) {
 	
 	std::string line;
@@ -22,14 +27,12 @@ std::string	GetAnswer(std::string needed) {
 					<< std::endl;
 		std::getline(std::cin, line);
 
-		if (std::cin.eof()){
-			exit (0);
-		}
-		if (line.length() != 0) {
+		if (std::cin.eof()) exit (0);
+
+		else if (line.length() != 0)
+		{
 			for (size_t i = 0; i < line.length(); i++) {
-				if (isalnum(line[i]) == 0) {
-					break ;
-				}
+				if (isalnum(line[i]) == 0) break ;
 			return line;
 			}
 		}
@@ -41,6 +44,10 @@ std::string	GetAnswer(std::string needed) {
 	return (line);
 }
 
+/**
+ * @brief get the index and verify if it's a valid index
+ * @return index of the contact requested
+ */
 int	GetIndex() {
 
 	std::string	line;
@@ -50,9 +57,11 @@ int	GetIndex() {
 	{
 		std::cout << "Please enter an index :" << std::endl;
 		std::getline(std::cin, line);
-		if (std::cin.eof())
-			exit (0);
-		else if (line.length() == 1 && std::isdigit(line[0])) {
+
+		if (std::cin.eof()) exit (0);
+		else if (line == "Exit" || line == "exit") return (-1);
+		else if (line.length() == 1 && std::isdigit(line[0]))
+		{
 			index = line[0] - '0';
 			if (index >= 0 && index < 9) return index;
 		}
@@ -60,21 +69,4 @@ int	GetIndex() {
 	}
 }
 
-void	DisplayTruncLine(std::string line) {
-	std::cout << line.substr(0, 9) << ".";
-}
 
-void	DisplaySpaceLine(std::string line, int space) {
-	while (space-- > 0)
-		std::cout << " ";
-	std::cout << line;
-}
-
-void	DisplayLine(std::string line) {
-	
-	int	space = 10 - line.length();
-	
-	if (space == 0) std::cout << line;
-	else if (space < 0) DisplayTruncLine(line);
-	else if (space > 0) DisplaySpaceLine(line, space);
-}

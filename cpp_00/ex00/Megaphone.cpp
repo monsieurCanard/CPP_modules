@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 13:21:25 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/12 10:22:07 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/12 12:12:11 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 #include <string>
 #include <cctype>
 
-static void	megaphone(std::string line = NULL)
-{
+
+/**
+ * @brief Verify if the character is printable and convert it to uppercase
+ */
+static void	megaphone(std::string line = NULL) {
 	for (size_t i = 0; i < line.length(); i++) {
 		if (isprint(line[i]))
 			std::cout << (char)toupper(line[i]);

@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 09:20:38 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/05 10:06:46 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/12 13:29:58 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 int main(void) {
 	
-	Zombie* zombie1 = Zombie::newZombie("Albert");
-	Zombie::randomChump("Francis");
-	zombie1->announce();
-	delete zombie1;
+	Zombie*	albert = newZombie("Albert");
+	Zombie  bernard;
+	
+	bernard.randomChump("Bernard");
+	albert->announce();
+
+	delete albert;
+	
 }

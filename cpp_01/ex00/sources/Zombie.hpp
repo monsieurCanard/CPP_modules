@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 08:51:14 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/09 17:28:39 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/12 13:30:36 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,13 @@ class Zombie {
 
 	public :
 		Zombie();
+		Zombie(const std::string name);
 		~Zombie();
 
 		void	announce(void);
 
-		static Zombie* newZombie(std ::string name);
-		static void	randomChump(std::string name);
+		Zombie* newZombie(const std ::string name);
+		void	randomChump(const std::string name);
 };
 
 # endif

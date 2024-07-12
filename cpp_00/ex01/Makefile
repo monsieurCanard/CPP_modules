@@ -6,7 +6,7 @@
 #    By: anthony <anthony@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 13:21:10 by Monsieur_Ca       #+#    #+#              #
-#    Updated: 2024/07/05 08:42:40 by anthony          ###   ########.fr        #
+#    Updated: 2024/07/12 12:19:28 by anthony          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,17 +14,20 @@ NAME = phonebook
 
 SRC_DIR = sources/
 OBJ_DIR = obj/
+INC_DIR = includes/
 
-SRC	=	$(SRC_DIR)phonebook.cpp			\
-		$(SRC_DIR)phonebook_utils.cpp	\
-		$(SRC_DIR)contact.cpp			\
+
+SRC	=	$(SRC_DIR)PhoneBook.cpp			\
+		$(SRC_DIR)PhoneBook_utils.cpp	\
+		$(SRC_DIR)PhoneBook_display.cpp	\
+		$(SRC_DIR)Contact.cpp			\
 		$(SRC_DIR)main.cpp
 
 OBJ = $(SRC:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
 
-HEADERS = $(wildcard $(SRC_DIR)*.hpp)
+HEADERS = $(wildcard $(INC_DIR)*.hpp)
 
-CXX = c++ -Wall -Wextra -Werror -std=c++98
+CXX = c++ -Wall -Wextra -Werror -std=c++98 -I $(INC_DIR)
 
 all: $(NAME)
 

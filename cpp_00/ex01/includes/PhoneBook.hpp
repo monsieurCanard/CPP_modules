@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:10:23 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/04 16:28:31 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/12 12:50:37 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,35 @@
 #define PHONEBOOK_HPP
 
 #include "Contact.hpp"
+
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>
-#include <string.h>
+#include <string>
 
-class PhoneBook {
+class	PhoneBook {
+
+	private:
+		Contact contact[8];
 
 	public:
 		PhoneBook();
 		~PhoneBook();
-		void AddContact(int index);
-		void GetContact();
-		void DisplayAllContacts();
-		void DisplayContact(int index);
-	private:
-		Contact contact[8];
+
+		void addContact(int index);
+		void getContact();
+		void displayContact(int index);
+		void displayAllContacts();
 };
+
+void		DisplayLaunch();
+void		DisplayPhoneBookTop();
+void		DisplayContactLine(std::string needed, std::string line);
+void		DisplayContactLine(int index);
+void		DisplayLine(std::string line);
+
+
+std::string	GetAnswer(std::string needed);
+int			GetIndex();
 
 #endif
