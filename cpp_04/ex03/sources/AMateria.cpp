@@ -6,15 +6,16 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 13:13:45 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/11 16:37:03 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/12 09:37:53 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 
 AMateria::AMateria() {
 	std::cout << "AMateria default constructor called" << std::endl;
-	type = "none";
+	_type = "none";
 	
 }
 
@@ -22,7 +23,7 @@ AMateria::~AMateria() {
 	std::cout << "AMateria destructor called" << std::endl;
 }
 
-AMateria::AMateria(std::string const &type) : type(type) {
+AMateria::AMateria(std::string const &type) : _type(type) {
 	std::cout << "AMateria parameter constructor called" << std::endl;
 }
 
@@ -33,16 +34,15 @@ AMateria::AMateria(const AMateria& copy) {
 
 AMateria&	AMateria::operator=(const AMateria &src) {
 	if (this != &src) {
+		_type = src._type;
 	}
 	return *this;
 }
 
 std::string const & AMateria::getType() const {
-	return this->type;
+	return this->_type;
 }
 
 void AMateria::use(ICharacter& target) {
-	if (getType().length() == 4) std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
-	else if (getType().length() == 3) std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
-	else std::cout << "Unknown type of materia" << std::endl;
+	(void)target;
 }

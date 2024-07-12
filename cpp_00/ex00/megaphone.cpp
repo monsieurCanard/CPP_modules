@@ -6,19 +6,19 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 13:21:25 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/09 16:50:55 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/12 10:22:07 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
+#include <cctype>
 
-using namespace std;
-
-static void	megaphone(string line = NULL)
+static void	megaphone(std::string line = NULL)
 {
 	for (size_t i = 0; i < line.length(); i++) {
-		std::cout << (char)toupper(line[i]);
+		if (isprint(line[i]))
+			std::cout << (char)toupper(line[i]);
 	}
 }
 
@@ -30,5 +30,4 @@ int main(int ac, char **av)
 			megaphone(av[i]);
 	}
 	std::cout << std::endl;
-	return (0);
 }

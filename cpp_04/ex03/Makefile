@@ -3,26 +3,26 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+         #
+#    By: anthony <anthony@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 13:21:10 by Monsieur_Ca       #+#    #+#              #
-#    Updated: 2024/07/11 12:54:59 by Monsieur_Ca      ###   ########.fr        #
+#    Updated: 2024/07/12 07:55:25 by anthony          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = animal
+NAME = a.out
 
 SRC_DIR = sources/
 OBJ_DIR = obj/
 INC_DIR = includes/
 
 SRC	=	$(SRC_DIR)main.cpp			\
-		$(SRC_DIR)Animal.cpp		\
-		$(SRC_DIR)Dog.cpp			\
-		$(SRC_DIR)Cat.cpp			\
-		$(SRC_DIR)WrongAnimal.cpp	\
-		$(SRC_DIR)Brain.cpp		\
-		$(SRC_DIR)WrongCat.cpp
+		$(SRC_DIR)AMateria.cpp		\
+		$(SRC_DIR)Character.cpp		\
+		$(SRC_DIR)Cure.cpp			\
+		$(SRC_DIR)Ice.cpp			\
+		$(SRC_DIR)MateriaSource.cpp
+		
 
 OBJ = $(SRC:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
 

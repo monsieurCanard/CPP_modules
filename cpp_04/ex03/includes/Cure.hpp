@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 14:18:01 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/11 16:08:02 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/12 08:19:23 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class Cure : public AMateria {
 		Cure &operator=(const Cure &src);
 
 		AMateria *clone() const;
+		void use(ICharacter &target);
 };
 
 # endif

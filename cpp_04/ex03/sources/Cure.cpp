@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 14:18:41 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/11 17:05:02 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/12 09:29:09 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,27 @@ Cure::Cure() : AMateria("cure") {
 }
 
 Cure::~Cure() {
-	
+	std::cout << "Cure destructor called" << std::endl;
 }
 
 Cure& Cure::operator=(const Cure &src) {
 	std::cout << "Cure assignation operator called" << std::endl;
 	if (this != &src) {
-		this->type = src.type;
+		this->_type = src._type;
 	}
 	return *this;
 }
 
-Cure::Cure(const Cure& src) {
+Cure::Cure(const Cure& src) : AMateria(src) {
 	std::cout << "Cure copy constructor called" << std::endl;
 	*this = src;
 }
 
 AMateria* Cure::clone() const {
 	std::cout << "Cure clone called" << std::endl;
-	if (this)
-		delete this;
 	return new Cure(*this);
+}
+
+void	Cure::use(ICharacter &target) {
+	std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
 }

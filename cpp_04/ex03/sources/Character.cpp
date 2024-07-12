@@ -6,16 +6,17 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 13:36:41 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/11 17:27:11 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/12 10:07:02 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
 Character::Character() {
-	_name = "Default";
+	_name = "none";
 	for (int i = 0; i < 4; i++)
 		_inventory[i] = NULL;
+}
 
 Character::~Character() {
 	for (int i = 0; i < 4; i++)
@@ -24,6 +25,7 @@ Character::~Character() {
 }
 
 Character::Character(std::string name) {
+	std::cout << "Character constructor parameter called" << std::endl;
 	_name = name;
 	for (int i = 0; i < 4; i++)
 		_inventory[i] = NULL;
@@ -32,23 +34,26 @@ Character::Character(std::string name) {
 Character::Character(const Character &copy) {
 	_name = copy._name;
 	for (int i = 0; i < 4; i++) {
-		_inventory[i] = copy._inventory[i].clone();
+		if (_inventory[i])
+			delete _inventory[i];
+		_inventory[i] = copy._inventory[i]->clone();
+	}
 }
 
-Character&	Character::operateur=(const Character &src) {
+Character&	Character::operator=(const Character &src) {
+
 	if (this != &src) {
-	
 		_name = src._name;
-		for (int i = 0; i < 4; i++)
-			_inventory[i] = src._inventory[i].clone();
+		for (int i = 0; i < 4; i++) {
+			if (_inventory[i])
+				delete _inventory[i];
+			if (src._inventory[i])
+				_inventory[i] = src._inventory[i]->clone();
+			else
+				_inventory[i] = NULL;
+		}
 	}	
 	return (*this);
-}
-
-Character::Character(std::string name) {
-	_name = name;
-	for (int i = 0; i < 4; i++)
-		_inventory[i] = NULL;
 }
 
 std::string const & Character::getName() const {
@@ -57,16 +62,18 @@ std::string const & Character::getName() const {
 
 void	Character::equip(AMateria* m) {
 	for (int i = 0; i < 4; i++) {
-		if (!_inventory[i]) {
+		if (!_inventory[i] && m) {
 			_inventory[i] = m;
+			std::cout << "Materia equipped in inventory number: " << i << std::endl;
+			return ;
 		}
-		return ;
 	}
 }
 
 void	Character::unequip(int idx) {
 	if (idx < 0 || idx > 3 || !_inventory[idx])
 		return ;
+	std::cout << "Materia unequipped in inventory number: " << idx << std::endl;
 	_inventory[idx] = NULL;
 }
 
@@ -74,4 +81,10 @@ void	Character::use(int idx, ICharacter& target) {
 	if (idx < 0 || idx > 3 || !_inventory[idx])
 		return ;
 	_inventory[idx]->use(target);
+}
+
+AMateria* Character::getMateria(int idx) const {
+	if (idx < 0 || idx > 3)
+		return (NULL);
+	return (_inventory[idx]);
 }
