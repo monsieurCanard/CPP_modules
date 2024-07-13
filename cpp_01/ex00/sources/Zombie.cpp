@@ -6,23 +6,25 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 08:50:14 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/12 13:23:07 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/13 09:51:02 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
 Zombie::Zombie() {
+	std::cout << "Zombie Constructor called" << std::endl;
 }
 
-Zombie::Zombie(const std::string name) : name(name) {
+Zombie::Zombie(const std::string name) : _name(name) {
+	std::cout << "Zombie Constructor parameter called" << std::endl;
 }
 
 Zombie::~Zombie() {
-	std::cout << name << " le zombie est detruit. RIP" << std::endl;
+	std::cout << _name << " le zombie est detruit. RIP" << std::endl;
 }
 
 void	Zombie::announce(void) {
 
-	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

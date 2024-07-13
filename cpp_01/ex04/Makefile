@@ -6,20 +6,18 @@
 #    By: anthony <anthony@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 13:21:10 by Monsieur_Ca       #+#    #+#              #
-#    Updated: 2024/07/13 10:21:11 by anthony          ###   ########.fr        #
+#    Updated: 2024/07/13 11:03:37 by anthony          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fight
+NAME = replacer
 
 SRC_DIR = sources/
 OBJ_DIR = obj/
 INC_DIR = includes/
 
-SRC	=	$(SRC_DIR)HumanA.cpp		\
-		$(SRC_DIR)HumanB.cpp		\
-		$(SRC_DIR)Weapon.cpp		\
-		$(SRC_DIR)main.cpp
+SRC	=	$(SRC_DIR)main.cpp \
+		$(SRC_DIR)replacer.cpp
 
 OBJ = $(SRC:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
 

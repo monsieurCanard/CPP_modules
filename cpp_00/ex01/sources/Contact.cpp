@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 15:57:49 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/12 12:53:57 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/13 09:48:52 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,12 @@
 Contact::Contact() 
 : _phone_number(""), _first_name(""),
 _last_name(""), _nickname(""),
- _secret(""), _index(0) { };
+ _secret(""), _index(0) {
+	std::cout << "Constructor Contact called" << std::endl;
+ }
 
 Contact::~Contact(){
+	std::cout << "Destructor Contact called" << std::endl;
 };
 
 ///////setTER

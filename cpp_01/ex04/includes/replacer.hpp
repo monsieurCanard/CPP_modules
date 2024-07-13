@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   replacer.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/05 10:17:13 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/13 09:52:57 by anthony          ###   ########.fr       */
+/*   Created: 2024/07/13 10:40:51 by anthony           #+#    #+#             */
+/*   Updated: 2024/07/13 11:17:14 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+# ifndef REPLACER_HPP
+# define REPLACER_HPP
 
-Zombie::Zombie() {
-	std::cout << "Zombie Constructor called" << std::endl;
-}
+#include <string.h>
+#include <cstdlib>
+#include <fstream>
+#include <iostream> 
 
-Zombie::~Zombie() {
-	std::cout << _name << " le zombie est detruit. RIP" << std::endl;
-}
-
-void	Zombie::announce(void) {
-
-	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
-void	Zombie::setName(std::string name) {
-	_name = name;
-}
+std::string	replacer(std::string line, std::string replace, std::string search); 
+void		error_msg(std::string move, std::string filename);
+	
+# endif

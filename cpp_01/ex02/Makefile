@@ -6,26 +6,22 @@
 #    By: anthony <anthony@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 13:21:10 by Monsieur_Ca       #+#    #+#              #
-#    Updated: 2024/07/13 10:21:11 by anthony          ###   ########.fr        #
+#    Updated: 2024/07/13 09:54:09 by anthony          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fight
+NAME = zombie
 
 SRC_DIR = sources/
 OBJ_DIR = obj/
-INC_DIR = includes/
 
-SRC	=	$(SRC_DIR)HumanA.cpp		\
-		$(SRC_DIR)HumanB.cpp		\
-		$(SRC_DIR)Weapon.cpp		\
-		$(SRC_DIR)main.cpp
+SRC	=	$(SRC_DIR)main.cpp
 
 OBJ = $(SRC:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
 
-HEADERS = $(wildcard $(INC_DIR)*.hpp)
+HEADERS = $(wildcard $(SRC_DIR)*.hpp)
 
-CXX = c++ -Wall -Wextra -Werror -std=c++98 -I $(INC_DIR)
+CXX = c++ -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 

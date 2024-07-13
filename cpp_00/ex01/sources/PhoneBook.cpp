@@ -6,17 +6,19 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 17:55:17 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/12 13:01:41 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/13 09:49:49 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook() {
+	std::cout << "PhoneBook Constructor called" << std::endl;
 	DisplayLaunch();
 };
 
 PhoneBook::~PhoneBook(){
+	std::cout << "PhoneBook Destructor called" << std::endl;
 };
 
 /**
