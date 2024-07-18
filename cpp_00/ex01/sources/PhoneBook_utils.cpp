@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook_utils.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 11:55:41 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/12 12:45:55 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/18 08:34:23 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ std::string	GetAnswer(std::string needed) {
 		std::getline(std::cin, line);
 
 		if (std::cin.eof()) exit (0);
-
 		else if (line.length() != 0)
 		{
 			for (size_t i = 0; i < line.length(); i++) {
@@ -63,7 +62,7 @@ int	GetIndex() {
 		else if (line.length() == 1 && std::isdigit(line[0]))
 		{
 			index = line[0] - '0';
-			if (index >= 0 && index < 9) return index;
+			if (index > 0 && index <= 9) return index;
 		}
 		std::cout << "Invalid index please retry..." << std::endl;
 	}

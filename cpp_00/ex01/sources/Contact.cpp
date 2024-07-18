@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 15:57:49 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/13 09:48:52 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/18 09:31:46 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 Contact::Contact() 
 : _phone_number(""), _first_name(""),
-_last_name(""), _nickname(""),
- _secret(""), _index(0) {
+  _last_name(""), _nickname(""),
+  _secret(""), _index(0) {
 	std::cout << "Constructor Contact called" << std::endl;
  }
 
@@ -25,7 +25,6 @@ Contact::~Contact(){
 	std::cout << "Destructor Contact called" << std::endl;
 };
 
-///////setTER
 void	Contact::setIndex(int index) {
 	_index = index;
 }
@@ -50,7 +49,6 @@ void	Contact::setSecret(std::string line) {
 	_secret = line;
 }
 
-///////GETTER
 int	Contact::getIndex() const {
 	return _index;
 }

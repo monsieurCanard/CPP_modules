@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 17:55:17 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/13 09:49:49 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/18 08:36:21 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void PhoneBook::displayContact(int index)
 	DisplayContactLine(index);
 	DisplayContactLine("First name", contact[index].getFirstName());
 	DisplayContactLine("Last name", contact[index].getLastName());
-	DisplayContactLine("Nickename", contact[index].getNickname());
+	DisplayContactLine("Nickname", contact[index].getNickname());
 	DisplayContactLine("PhoneNumber", contact[index].getPhoneNumber());
 	DisplayContactLine("Secret", contact[index].getSecret());
 	std::cout << "---------------------------------------------" << std::endl << std::endl;

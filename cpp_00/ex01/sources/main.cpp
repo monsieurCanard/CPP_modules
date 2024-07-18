@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 16:02:04 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/12 12:59:17 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/18 09:30:56 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ int	main(void)
 		else if (command == "EXIT" || command == "exit") break ;
 		else if (command == "ADD" || command == "add") phonebook.addContact(index++);
 		else if (command == "SEARCH" || command == "search") phonebook.getContact();
+		else std::cout << "Invalid command, please retry !" << std::endl;
 	}
 }

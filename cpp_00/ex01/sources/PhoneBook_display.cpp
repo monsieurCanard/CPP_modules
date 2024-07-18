@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook_display.cpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 12:17:36 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/12 12:52:47 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/18 09:23:10 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  */
 void	DisplayLaunch() {
 	std::cout << "              ----------------------------" << std::endl;
-	std::cout << "   Welcome in my Duckky Crappy Awesome phonebook software !" << std::endl;
+	std::cout << "   Welcome in my Duckky Crappy Awesome Phonebook software !" << std::endl;
 	std::cout << "              ----------------------------" << std::endl << std::endl;
 	std::cout << "Please enter one of these 3 choices :" << std::endl;
 	std::cout << "------------------------------------------------------" << std::endl;

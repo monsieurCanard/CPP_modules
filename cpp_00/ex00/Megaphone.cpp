@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 13:21:25 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/12 12:12:11 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/18 09:18:10 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ int main(int ac, char **av)
 	else {
 		for (int i = 1; i < ac; i++)
 			megaphone(av[i]);
+		std::cout << std::endl;
 	}
-	std::cout << std::endl;
 }
