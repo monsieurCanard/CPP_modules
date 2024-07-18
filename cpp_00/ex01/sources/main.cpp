@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 16:02:04 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/18 09:30:56 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/18 15:01:13 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(void)
 	
 	while (true)
 	{
-		std::cout << "Please enter a command :" << std::endl;
+		std::cout << RED "Please enter a command :" RESET << std::endl;
 		std::getline(std::cin, command);
 
 		if (std::cin.eof())
@@ -31,5 +31,6 @@ int	main(void)
 		else if (command == "ADD" || command == "add") phonebook.addContact(index++);
 		else if (command == "SEARCH" || command == "search") phonebook.getContact();
 		else std::cout << "Invalid command, please retry !" << std::endl;
+		DisplayCmd();
 	}
 }

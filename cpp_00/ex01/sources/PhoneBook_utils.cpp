@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook_utils.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 11:55:41 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/18 08:34:23 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/18 15:08:14 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ std::string	GetAnswer(std::string needed) {
 	
 	while (true)
 	{
-		std::cout	<< "Enter your " << needed << " : "
+		std::cout	<< GREEN "Enter your " << needed << " : " RESET
 					<< std::endl;
 		std::getline(std::cin, line);
 
@@ -54,7 +54,7 @@ int	GetIndex() {
 
 	while (true)
 	{
-		std::cout << "Please enter an index :" << std::endl;
+		std::cout << GREEN "Please enter an index :" RESET<< std::endl;
 		std::getline(std::cin, line);
 
 		if (std::cin.eof()) exit (0);
@@ -62,7 +62,7 @@ int	GetIndex() {
 		else if (line.length() == 1 && std::isdigit(line[0]))
 		{
 			index = line[0] - '0';
-			if (index > 0 && index <= 9) return index;
+			if (index > 0 && index < 9) return index;
 		}
 		std::cout << "Invalid index please retry..." << std::endl;
 	}

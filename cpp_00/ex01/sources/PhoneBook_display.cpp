@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook_display.cpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 12:17:36 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/18 09:23:10 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/18 15:12:36 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,21 @@ void	DisplayLaunch() {
 	std::cout << "------------------------------------------------------" << std::endl;
 }
 
+/**
+ * @brief display explicit message to the user to help him to use the phonebook
+ */
+void	DisplayCmd() {
+	std::cout << "------------------------------------------------------ " << std::endl;
+	std::cout << "Please enter one of these 3 choices :" << std::endl;
+	std::cout << "------------------------------------------------------" << std::endl;
+	std::cout << "ADD :    Save a new contact" << std::endl;
+	std::cout << "------------------------------------------------------" << std::endl;
+	std::cout << "SEARCH : Display a specific contact" << std::endl;
+	std::cout << "------------------------------------------------------" << std::endl;
+	std::cout << "EXIT" << std::endl;
+	std::cout << "------------------------------------------------------ " << std::endl;
+}
+
 void	DisplayPhoneBookTop() {
 
 	std::cout << "---------------------------------------------" << std::endl;
@@ -42,9 +57,9 @@ void	DisplayPhoneBookTop() {
  * @param index index of the contact
  */
 void	DisplayContactLine(int index) {
-	std::cout << "---------------------------------------------" << std::endl;
-	std::cout	<< "Index : " 
-				<< index << std::endl;
+	std::cout << RED "---------------------------------------------" << std::endl;
+	std::cout	<< "Index : " << GREEN
+				<< index << RESET << std::endl;
 }
 
 /**
@@ -52,8 +67,8 @@ void	DisplayContactLine(int index) {
  * @param line line to display
  */
 void	DisplayContactLine(std::string needed, std::string line) {
-	std::cout << "---------------------------------------------" << std::endl;
-	std::cout << needed << " : " << line << std::endl;
+	std::cout << RED "---------------------------------------------" << std::endl;
+	std::cout << needed << " : " << GREEN << line << RESET << std::endl;
 }
 
 /**

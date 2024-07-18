@@ -6,12 +6,17 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:10:23 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/12 12:50:37 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/18 15:04:03 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
+
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define BLUE "\033[34m"
+#define RESET "\033[0m"
 
 #include "Contact.hpp"
 
@@ -36,6 +41,7 @@ class	PhoneBook {
 };
 
 void		DisplayLaunch();
+void		DisplayCmd();
 void		DisplayPhoneBookTop();
 void		DisplayContactLine(std::string needed, std::string line);
 void		DisplayContactLine(int index);
