@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 10:17:13 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/13 09:52:57 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/19 18:17:02 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ Zombie::Zombie() {
 }
 
 Zombie::~Zombie() {
-	std::cout << _name << " le zombie est detruit. RIP" << std::endl;
+	std::cout << RED << _name << " le zombie est detruit. RIP" << RESET << std::endl;
 }
 
 void	Zombie::announce(void) {
 
-	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << TEAL << _name << ": BraiiiiiiinnnzzzZ..." << RESET << std::endl;
 }
 
 void	Zombie::setName(std::string name) {

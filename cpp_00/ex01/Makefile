@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+         #
+#    By: anthony <anthony@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 13:21:10 by Monsieur_Ca       #+#    #+#              #
-#    Updated: 2024/07/18 09:32:52 by Monsieur_Ca      ###   ########.fr        #
+#    Updated: 2024/07/19 18:00:57 by anthony          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,6 @@ INC_DIR = includes/
 
 SRC	=	$(SRC_DIR)PhoneBook.cpp			\
 		$(SRC_DIR)PhoneBook_utils.cpp	\
-		$(SRC_DIR)PhoneBook_display.cpp	\
 		$(SRC_DIR)Contact.cpp			\
 		$(SRC_DIR)main.cpp
 

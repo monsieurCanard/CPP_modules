@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 17:14:41 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/13 11:36:01 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/19 18:33:22 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,24 @@ Harl::~Harl(){
 }
 
 void	Harl::debug() {
-	std::cout	<< "Cat are gonna replace human because of us !"
-				<< std::endl;
+	std::cout	<< PINK << "Cat are gonna replace us !"
+				<< RESET << std::endl;
 }
 
 void	Harl::info() {
-	std::cout	<< "Life is a b**** ! But you can repair it... With drugs !"
-				<< std::endl;
+	std::cout	<< PURPLE << "Life is a b**** ! But you can repair it... With drugs !"
+				<< RESET << std::endl;
 }
 
 void	Harl::warning() {
-	std::cout	<< "Human gonna fuck up the world ! But not now... "
+	std::cout	<< BLUE << "Human gonna fuck up the world ! But not now... "
 				<< "this is just a warning !"
-				<< std::endl;
+				<< RESET << std::endl;
 }
 
 void	Harl::error() {
-	std::cout	<< "4 8 15 16 23 42, system shut down !!"
-				<< std::endl;
+	std::cout	<< TEAL << "4 8 15 16 23 42, system shut down !!"
+				<< RESET << std::endl;
 }
 
 void	Harl::complain(std::string level) {
@@ -53,5 +53,7 @@ void	Harl::complain(std::string level) {
 			return ;
 		}
 	}
-	std::cout << "I don't know this level, this is something... I can't understand..." << std::endl << "I'm a robot after all..." << std::endl;
+	std::cout	<< RED << "I don't know this level, this is something... I can't understand..." 
+				<< std::endl << "I'm a robot after all..." 
+				<< RESET << std::endl;
 }

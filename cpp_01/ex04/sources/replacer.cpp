@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 10:39:47 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/13 11:11:53 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/19 18:39:27 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ std::string replacer(std::string line, std::string replace, std::string search) 
 void	error_msg(std::string move, std::string filename) {
 	std::cout	<< "Error: Couldn't "
 				<< move
-				<< " " + filename
+				<< " " << filename
 				<< std::endl;
 	exit(1);
 }

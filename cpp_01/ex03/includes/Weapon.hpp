@@ -6,12 +6,19 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 11:06:07 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/13 10:07:42 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/19 18:20:40 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # ifndef WEAPON_HPP
 # define WEAPON_HPP
+
+#define ORANGE "\033[38;5;208m"
+#define RED "\033[38;5;196m"
+#define TEAL "\033[38;5;49m"
+#define PURPLE "\033[38;5;129m"
+#define OLIVE "\033[38;5;58m"
+#define RESET "\033[0m"
 
 #include <string.h>
 #include <iostream>

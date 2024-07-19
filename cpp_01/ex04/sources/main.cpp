@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 14:05:48 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/13 11:13:57 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/19 18:27:01 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int main(int ac, char **av) {
 	/// Create the new file and check if it's open
 	std::ofstream outfile((filename + ".replace").c_str());
 	if (!outfile.is_open()) error_msg("open", filename + ".replace");
-	
 
 	std::string line;
 	std::string search(av[2]);

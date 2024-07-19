@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 09:20:38 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/13 09:36:26 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/19 18:15:11 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ int main(void) {
 	albert = newZombie("Albert");
 	albert->announce();
 	delete albert;
+
 	randomChump("Bernard");	
 }
