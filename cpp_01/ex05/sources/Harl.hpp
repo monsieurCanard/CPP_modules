@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 17:13:26 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/19 18:30:50 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/23 11:05:03 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ class	Harl {
 		void	info(void);
 		void	warning(void);
 		void	error(void);
+		typedef void	(Harl::*HarlFunctions)();
 		
 	public :
 		Harl();
 		~Harl();
 		void	complain(std::string level);
-		typedef void	(Harl::*HarlFunctions)();
 };
 
 # endif

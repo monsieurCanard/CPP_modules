@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 14:05:48 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/19 18:27:01 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/23 09:33:16 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int main(int ac, char **av) {
 		return (false);
 	}
 	std::string filename = av[1];
+	
 	/// Open the file
 	std::ifstream infile(filename.c_str());
 	if (!infile.is_open()) error_msg("open", filename);
