@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 10:17:38 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/13 09:41:58 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/23 15:33:39 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ Zombie* zombieHorde(int n, std::string name) {
 	{
 		horde[n].setName(name);
 	}
-	return horde;
+	return (horde);
 }

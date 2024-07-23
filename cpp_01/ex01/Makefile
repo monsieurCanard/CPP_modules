@@ -6,7 +6,7 @@
 #    By: anthony <anthony@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 13:21:10 by Monsieur_Ca       #+#    #+#              #
-#    Updated: 2024/07/05 15:11:23 by anthony          ###   ########.fr        #
+#    Updated: 2024/07/23 16:16:26 by anthony          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME = zombiehorde
 
 SRC_DIR = sources/
 OBJ_DIR = obj/
+INC_DIR = includes/
 
 SRC	=	$(SRC_DIR)Zombie.cpp		\
 		$(SRC_DIR)zombieHorde.cpp		\
@@ -23,7 +24,7 @@ OBJ = $(SRC:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
 
 HEADERS = $(wildcard $(SRC_DIR)*.hpp)
 
-CXX = c++ -Wall -Wextra -Werror -std=c++98
+CXX = c++ -Wall -Wextra -Werror -std=c++98 -I $(INC_DIR)
 
 all: $(NAME)
 

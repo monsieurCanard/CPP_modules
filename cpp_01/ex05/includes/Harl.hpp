@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 17:13:26 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/23 11:05:03 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/23 15:59:00 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ class	Harl {
 		void	info(void);
 		void	warning(void);
 		void	error(void);
+/** 
+ * * @brief Function pointer to Harl functions
+ * ! This is a pointer to a function that takes no arguments and returns void
+ */
 		typedef void	(Harl::*HarlFunctions)();
 		
 	public :

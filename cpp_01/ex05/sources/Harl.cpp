@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 17:14:41 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/19 18:33:22 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/23 16:06:40 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,27 @@ Harl::~Harl(){
 }
 
 void	Harl::debug() {
-	std::cout	<< PINK << "Cat are gonna replace us !"
+	std::cout	<< PINK << "[ DEBUG ]" << std::endl
+				<< "Cat are gonna replace us !"
 				<< RESET << std::endl;
 }
 
 void	Harl::info() {
-	std::cout	<< PURPLE << "Life is a b**** ! But you can repair it... With drugs !"
+	std::cout	<< PURPLE << "[ INFO ]" << std::endl
+				<< "Life is a b**** ! But you can repair it... With drugs !"
 				<< RESET << std::endl;
 }
 
 void	Harl::warning() {
-	std::cout	<< BLUE << "Human gonna fuck up the world ! But not now... "
+	std::cout	<< BLUE << "[ WARNING ]" << std::endl
+				<< "Human gonna fuck up the world ! But not now... "
 				<< "this is just a warning !"
 				<< RESET << std::endl;
 }
 
 void	Harl::error() {
-	std::cout	<< TEAL << "4 8 15 16 23 42, system shut down !!"
+	std::cout	<< TEAL << "[ ERROR ]" << std::endl
+				<< "4 8 15 16 23 42, system shut down !!"
 				<< RESET << std::endl;
 }
 

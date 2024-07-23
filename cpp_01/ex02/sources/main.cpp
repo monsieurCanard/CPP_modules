@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 10:50:34 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/19 18:19:34 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/23 15:34:42 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,13 @@ int main(void) {
 	std::string* stringPTR = &line;
 	std::string& stringREF = line;
 
+	std::cout << std::endl;
+
 	std::cout << PURPLE << "Adress of line          : " << &line << std::endl;
 	std::cout << "Adress held by stringPTR: " << stringPTR << std::endl;
 	std::cout << "Adress held by stringREF: " << &stringREF << std::endl;
+
+	std::cout << std::endl;
 
 	std::cout << TEAL << "Value of line     : " << line << std::endl;
 	std::cout << "Value of stringPTR: " << *stringPTR << std::endl;

@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 11:26:42 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/19 18:24:32 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/23 15:44:14 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ Weapon::~Weapon() {
 	std::cout << RED << "Weapon Destructor called" << RESET << std::endl;
 }
 
-const std::string Weapon::getType() {
+const std::string& Weapon::getType() {
 	return _type;
 }
 
-void	Weapon::setType(std::string name) {
-	_type = name;
+void	Weapon::setType(std::string new_type) {
+	_type = new_type;
 }

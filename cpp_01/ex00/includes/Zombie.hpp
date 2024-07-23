@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 08:51:14 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/19 18:10:14 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/23 15:29:29 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,12 @@
 #define OLIVE "\033[38;5;58m"
 #define RESET "\033[0m"
 
-
 #include <iostream>
 #include <string>
 #include <iomanip>
 
 class Zombie {
-	
+
 	private :
 		std::string	_name;
 
