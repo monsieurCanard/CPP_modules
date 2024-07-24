@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 12:14:24 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/09 17:29:36 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/24 09:55:44 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,11 @@ Fixed::Fixed() {
 	nb_fixed = 0;
 }
 
-Fixed::Fixed(const int value)
-{
+Fixed::Fixed(const int value) {
 	nb_fixed = value << nb_fract;
 }
 
 Fixed::Fixed(const float value) {
-
 	nb_fixed = roundf(value * (1 << this->nb_fract));
 }
 
@@ -68,21 +66,21 @@ bool	Fixed::operator!=(const Fixed &src) {
 	return nb_fixed != src.nb_fixed;
 }
 
-Fixed&	Fixed::operator+(const Fixed &src) {
+Fixed	Fixed::operator+(const Fixed &src) {
 	Fixed tmp(this->toFloat() + src.toFloat());
 
 	nb_fixed = tmp.nb_fixed;
 	return *this;
 }
 
-Fixed&	Fixed::operator-(const Fixed &src) {
+Fixed	Fixed::operator-(const Fixed &src) {
 	Fixed tmp(this->toFloat() - src.toFloat());
 
 	nb_fixed = tmp.nb_fixed;
 	return *this;
 }
 
-Fixed&	Fixed::operator*(const Fixed &src) {
+Fixed	Fixed::operator*(const Fixed &src) {
 	
 	Fixed tmp(this->toFloat() * src.toFloat());
 
@@ -90,7 +88,7 @@ Fixed&	Fixed::operator*(const Fixed &src) {
 	return *this;
 }
 
-Fixed &Fixed::operator/(const Fixed &src)
+Fixed Fixed::operator/(const Fixed &src)
 {
 	Fixed tmp(this->toFloat() / src.toFloat());
 
@@ -122,12 +120,10 @@ Fixed& Fixed::operator--() {
 	--nb_fixed;
 	return *this;
 }
-//FUNCTION
 
-std::ostream &operator<<(std::ostream &os, const Fixed &src) {
-	os << src.toFloat();
-	return os;
-}
+/**
+ * ! FUNCTIONS
+ */
 
 int Fixed::getRawBits() const
 {
@@ -180,4 +176,11 @@ const Fixed&	Fixed::max(const Fixed &nb1, const Fixed &nb2) {
 	else
 		return nb2;
 }
-//TODO FAIRE LES FONCTIONS MIN et MIN CONST MAX et MAX CONST
+
+/**
+ * ! OVERLOAD
+ */
+std::ostream& operator<<(std::ostream &os, const Fixed &src) {
+	os << src.toFloat();
+	return os;
+}

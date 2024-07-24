@@ -3,23 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 12:14:24 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/08 12:49:26 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/23 16:41:06 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed(/* args */)
-{
+Fixed::Fixed() {
 	std::cout << "Default constructor called" << std::endl;
 	this->nb_fixed = 0;
 }
 
-Fixed::~Fixed()
-{
+Fixed::~Fixed() {
 	std::cout << "Default destructor called" << std::endl;
 }
 
@@ -28,7 +26,7 @@ Fixed::Fixed(const Fixed& src) {
 	*this = src;
 }
 
-Fixed &Fixed::operator=(const Fixed &src)
+Fixed& Fixed::operator=(const Fixed &src)
 {
 	this->nb_fixed = src.nb_fixed;
 	std::cout << "Copy assignment operator called" << std::endl;

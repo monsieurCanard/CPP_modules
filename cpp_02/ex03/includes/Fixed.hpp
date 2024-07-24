@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 12:15:05 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/09 11:00:14 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/24 09:48:21 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,15 @@ class Fixed
 		bool	operator<=(const Fixed &src);
 		bool	operator==(const Fixed &src);
 		bool	operator!=(const Fixed &src);
-		
-		Fixed&	operator+(const Fixed &src);
-		Fixed&	operator-(const Fixed &src);
-		Fixed&	operator*(const Fixed &src);
-		Fixed&	operator/(const Fixed &src);
+
+		Fixed	operator+(const Fixed &src);
+		Fixed	operator-(const Fixed &src);
+		Fixed	operator*(const Fixed &src);
+		Fixed	operator/(const Fixed &src);
 		Fixed&	operator++();
 		Fixed	operator++(int);
 		Fixed&	operator--();
 		Fixed	operator--(int);
-
-
 
 		int					toInt() const;
 		float				toFloat() const;
@@ -57,8 +55,8 @@ class Fixed
 		static Fixed&		max(Fixed &nb1, Fixed &nb2);
 		static const Fixed&	max(const Fixed &nb1, const Fixed &nb2);
 };
+		std::ostream& operator<<(std::ostream &os, const Fixed &src);
 
-std::ostream& operator<<(std::ostream &os, const Fixed &src);
 
 
 #endif

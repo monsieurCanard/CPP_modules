@@ -6,7 +6,7 @@
 #    By: anthony <anthony@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 13:21:10 by Monsieur_Ca       #+#    #+#              #
-#    Updated: 2024/07/09 13:04:05 by anthony          ###   ########.fr        #
+#    Updated: 2024/07/24 10:02:22 by anthony          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,16 +14,18 @@ NAME = a.out
 
 SRC_DIR = sources/
 OBJ_DIR = obj/
+INC_DIR = includes/
 
-SRC	=	$(SRC_DIR)Fixed.cpp		\
-		$(SRC_DIR)Point.cpp		\
+SRC	=	$(SRC_DIR)Fixed.cpp	\
+		$(SRC_DIR)Point.cpp	\
+		$(SRC_DIR)bsp.cpp	\
 		$(SRC_DIR)main.cpp
 
 OBJ = $(SRC:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
 
-HEADERS = $(wildcard $(SRC_DIR)*.hpp)
+HEADERS = $(wildcard $(INC_DIR)*.hpp)
 
-CXX = c++ -Wall -Wextra -Werror -std=c++98
+CXX = c++ -Wall -Wextra -Werror -std=c++98 -I $(INC_DIR)
 
 all: $(NAME)
 

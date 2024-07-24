@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 12:14:24 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/09 12:11:56 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/23 16:59:58 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ Fixed::Fixed() {
 	nb_fixed = 0;
 }
 
-Fixed::Fixed(const int value)
-{
+Fixed::Fixed(const int value) {
 	nb_fixed = value << nb_fract;
 }
 
@@ -68,21 +67,21 @@ bool	Fixed::operator!=(const Fixed &src) {
 	return nb_fixed != src.nb_fixed;
 }
 
-Fixed&	Fixed::operator+(const Fixed &src) {
+Fixed	Fixed::operator+(const Fixed &src) {
 	Fixed tmp(this->toFloat() + src.toFloat());
 
 	nb_fixed = tmp.nb_fixed;
 	return *this;
 }
 
-Fixed&	Fixed::operator-(const Fixed &src) {
+Fixed	Fixed::operator-(const Fixed &src) {
 	Fixed tmp(this->toFloat() - src.toFloat());
 
 	nb_fixed = tmp.nb_fixed;
 	return *this;
 }
 
-Fixed&	Fixed::operator*(const Fixed &src) {
+Fixed	Fixed::operator*(const Fixed &src) {
 	
 	Fixed tmp(this->toFloat() * src.toFloat());
 
@@ -90,8 +89,11 @@ Fixed&	Fixed::operator*(const Fixed &src) {
 	return *this;
 }
 
-Fixed &Fixed::operator/(const Fixed &src)
+Fixed Fixed::operator/(const Fixed &src)
 {
+	if (src.toFloat() == 0)
+		return Fixed(0);
+
 	Fixed tmp(this->toFloat() / src.toFloat());
 
 	nb_fixed = tmp.nb_fixed;
