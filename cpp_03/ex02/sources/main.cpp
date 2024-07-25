@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 18:07:16 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/10 16:12:30 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/25 17:55:11 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int	main(void) {
 	unknown.attack(michel.getName());
 	michel.takeDamage(unknown.getAttackDamage());
 
+	unknown.highFivesGuys();
 	std::cout << std::endl;
 	unknown.displayInfo();
 	michel.displayInfo();

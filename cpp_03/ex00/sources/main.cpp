@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 18:07:16 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/11 10:41:48 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/25 16:54:19 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	main(void) {
 	francis.attack(unknown.getName());
 	unknown.takeDamage(francis.getAttackDamage());
 	
+	std::cout << std::endl;
 	unknown.displayInfo();
 	michel.displayInfo();
 	francis.displayInfo();

@@ -6,7 +6,7 @@
 #    By: anthony <anthony@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 13:21:10 by Monsieur_Ca       #+#    #+#              #
-#    Updated: 2024/07/09 18:18:19 by anthony          ###   ########.fr        #
+#    Updated: 2024/07/25 16:54:44 by anthony          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,15 +14,16 @@ NAME = claptrap
 
 SRC_DIR = sources/
 OBJ_DIR = obj/
+INC_DIR = includes/
 
 SRC	=	$(SRC_DIR)ClapTrap.cpp		\
 		$(SRC_DIR)main.cpp
 
 OBJ = $(SRC:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
 
-HEADERS = $(wildcard $(SRC_DIR)*.hpp)
+HEADERS = $(wildcard $(INC_DIR)*.hpp)
 
-CXX = c++ -Wall -Wextra -Werror -std=c++98
+CXX = c++ -Wall -Wextra -Werror -std=c++98 -I $(INC_DIR)
 
 all: $(NAME)
 

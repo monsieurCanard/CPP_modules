@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 17:32:02 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/11 10:52:27 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/25 17:54:27 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,35 +16,44 @@
 #include <string.h>
 #include <iostream>
 
+#define ORANGE "\033[38;5;208m"
+#define RED "\033[38;5;196m"
+#define TEAL "\033[38;5;49m"
+#define PURPLE "\033[38;5;129m"
+#define OLIVE "\033[38;5;58m"
+#define RESET "\033[0m"
+
+
 class ClapTrap
 {
 	protected:
-		std::string	name;
-		int			hit_points;
-		int			energy_points;
-		int			attack_damage;
+		std::string	_name;
+		int			_hit_points;
+		int			_energy_points;
+		int			_attack_damage;
 
 	public:
 		ClapTrap();
-		ClapTrap(std::string newName);
+		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap& src);
 		~ClapTrap();
 		ClapTrap& operator=(const ClapTrap &src);
 
 		virtual void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
-		void	displayInfo();
+		void			takeDamage(unsigned int amount);
+		void			beRepaired(unsigned int amount);
 		
-		virtual std::string	getName();
-		int					getHitPoints();
-		int					getEnergyPoints();
-		int					getAttackDamage();
+		std::string	getName();
+		int			getHitPoints();
+		int			getEnergyPoints();
+		int			getAttackDamage();
 
-		void	setName(std::string newName);
-		void	setHitPoints(int newHitPoints);
-		void	setEnergyPoints(int newEnergyPoints);
-		void	setAttackDamage(int newAttackDamage);
+		void	setName(std::string name);
+		void	setHitPoints(int hit_points);
+		void	setEnergyPoints(int energy_points);
+		void	setAttackDamage(int attack_damage);
+		
+		void	displayInfo();
 };
 
 # endif

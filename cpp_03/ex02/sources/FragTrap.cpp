@@ -3,29 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 11:06:38 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/11 10:41:08 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/25 18:00:31 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap() {
-
+FragTrap::FragTrap() : ClapTrap() {
 	std::cout << "Default constructor of FragTrap called" << std::endl;
-	name = "none";
-	hit_points = 0;
-	energy_points = 0;
-	attack_damage = 0;
-	
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name) {
-	hit_points = 100;
-	energy_points = 100;
-	attack_damage = 30;
+	_hit_points = 100;
+	_energy_points = 100;
+	_attack_damage = 30;
 	std::cout << "Constructor of FragTrap called" << std::endl;
 }
 
@@ -35,9 +29,9 @@ FragTrap::FragTrap(const FragTrap& src) : ClapTrap(src) {
 
 FragTrap& FragTrap::operator=(const FragTrap &src) {
 	if (this != &src) {
-		hit_points = src.hit_points;
-		energy_points = src.energy_points;
-		attack_damage = src.attack_damage;
+		_hit_points = src._hit_points;
+		_energy_points = src._energy_points;
+		_attack_damage = src._attack_damage;
 	}
 	return *this;
 }
@@ -47,5 +41,5 @@ FragTrap::~FragTrap() {
 }
 
 void	FragTrap::highFivesGuys() {
-	std::cout << "HIGH FIVES GUYS !" << std::endl;
+	std::cout << std::endl << PURPLE << "HIGH FIVES GUYS !" << RESET << std::endl;
 }
