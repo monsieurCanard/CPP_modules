@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 08:51:14 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/23 15:29:29 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/25 09:57:28 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class Zombie {
 		void	announce(void);
 };
 
-Zombie* newZombie(const std ::string name);
+Zombie*	newZombie(const std ::string name);
 void	randomChump(const std::string name);
 
 # endif
