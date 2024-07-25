@@ -6,22 +6,25 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 09:50:37 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/24 10:08:08 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/25 16:36:04 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
+#include <cmath>
 
 static float	getArea(const Point &p1, const Point p2, const Point p3) {
-	float	area;
+	Fixed	area;
+	float	area_float;
 
-	area = ((p1.getX().toFloat()*(p2.getY().toFloat() - p3.getY().toFloat()) +
-			p2.getX().toFloat()*(p3.getY().toFloat() - p1.getY().toFloat()) +
-			p3.getX().toFloat()*(p1.getY().toFloat() - p2.getY().toFloat())) / 2.0);
-	if (area < 0)
-		return -area;
+	area = ((p1.getX()*(p2.getY() - p3.getY()) +
+			p2.getX()*(p3.getY() - p1.getY()) +
+			p3.getX()*(p1.getY() - p2.getY())));
+	area_float = area.toFloat() / 2;
+	if (area_float < 0)
+		return -area_float;
 	else
-		return area;
+		return area_float;
 }
 
 static bool	verifPoint(const Point point, const Point &other_point) {
@@ -39,8 +42,8 @@ static bool	verifPointEdge(const Point &point, const Point &p1, const Point &p2)
 	Fixed coord_y = slope * point.getX() + b_line;
 	Fixed margin(0.01f);
 
-	if (coord_y - point.getY() <= margin && coord_y - point.getY() >= 0) {
-
+	if (std::abs(coord_y.toFloat() - point.getY().toFloat()) <= margin.toFloat())
+	{
 		if ((point.getX() >= p1.getX() && point.getX() <= p2.getX())
 			|| (point.getX() >= p2.getX() && point.getX() <= p1.getX())) {
 
@@ -59,15 +62,15 @@ bool	bsp(Point const &a, Point const &b, Point const &c, Point const &point) {
 
 	for (int i = 0; i < 3; i++) {
 /**
- * ! Check if the point is on an top of the triangle
+ * ! Check if the point is on one of a top of the triangle
  */
-		if (verifPoint(point, edge[i]) == false)
-			return false;
+		if (verifPoint(point, edge[i]) == false) {
+			return false; }
 /**
  * ! Check if the point is on the edge of the triangle
  */
 		else if (verifPointEdge(point, edge[i], edge[(i + 1) % 3]) == false)
-			return false;
+				return false;
 	}
 
 /**
@@ -77,9 +80,7 @@ bool	bsp(Point const &a, Point const &b, Point const &c, Point const &point) {
 	Fixed area_point[3] = {getArea(a, b, point),
 							getArea(a, c, point),
 							getArea(b, c, point)};
-
-	if ((area_point[0].toFloat() + area_point[1].toFloat() + area_point[2].toFloat())
-		== area_base.toFloat())
+	if (std::abs(area_point[0].toFloat() + area_point[1].toFloat() + area_point[2].toFloat() - area_base.toFloat()) < 0.01f)
 		return true;
 	return false;
 }
