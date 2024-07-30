@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 16:12:01 by anthony           #+#    #+#             */
-/*   Updated: 2024/07/12 10:04:30 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/29 14:09:22 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,68 +20,66 @@
 
 int main()
 {
+	
 	AMateria* tmp_junk;
+	
 	std::cout << "Creation new MateriaSource" << std::endl;
 	IMateriaSource* src = new MateriaSource();
+	
 	std::cout << std::endl << std::endl;
 
-
-	
 	std::cout << "Learn new Materia" << std::endl;
 	src->learnMateria(new Cure());
-	std::cout << std::endl << std::endl;
 
+
+	std::cout << std::endl << std::endl;
 
 	std::cout << "Learn new Materia" << std::endl;
 	src->learnMateria(new Ice());
+
+
 	std::cout << std::endl << std::endl;
-
-
-
-
-
-
 
 	std::cout << "Creation new Character" << std::endl;
 	ICharacter* me = new Character("me");
-	std::cout << std::endl << std::endl;
 
+
+	std::cout << std::endl << std::endl;
 
 	std::cout << "Creation new Materia" << std::endl;
 	AMateria* tmp;
+
+
 	std::cout << std::endl << std::endl;
-
-
-
-
 
 	std::cout << "Create Materia of type ice" << std::endl;
 	tmp = src->createMateria("ice");
+
+
 	std::cout << std::endl << std::endl;
 
 	std::cout << "Equip Materia" << std::endl;
 	me->equip(tmp);
+
 	std::cout << std::endl << std::endl;
 
 	std::cout << "Create Materia of type cure" << std::endl;
 	tmp = src->createMateria("cure");
+
 	std::cout << std::endl << std::endl;
 	
 	std::cout << "Equip Materia" << std::endl;
 	me->equip(tmp);
-	std::cout << std::endl << std::endl;
 
+	std::cout << std::endl << std::endl;
 
 
 	std::cout << "Creation new Character" << std::endl;
 	ICharacter* bob = new Character("bob");
-
 	std::cout << std::endl << std::endl;
+
 	std::cout << "Use Materia" << std::endl;
 	me->use(0, *bob);
-	std::cout << std::endl << std::endl;
-
-	std::cout << "Use Materia" << std::endl;
 	me->use(1, *bob);
 	std::cout << std::endl << std::endl;
 
@@ -89,6 +87,7 @@ int main()
 	tmp_junk = me->getMateria(0);
 	me->unequip(0);
 	delete tmp_junk;
+
 	tmp_junk = me->getMateria(1);
 	me->unequip(1);
 	delete tmp_junk;

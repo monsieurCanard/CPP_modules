@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 13:10:15 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/12 09:31:33 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/29 12:16:38 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,7 @@ class AMateria {
 
 		std::string const & getType() const;
 
-		/// Pure virtual function, have to be implemented in derived classes 
 		virtual AMateria *clone() const = 0;
-
-		/// Virtual function, can be overriden in derived classes
 		virtual void use(ICharacter& target);
 };
 

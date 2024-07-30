@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 13:36:41 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/12 10:07:02 by anthony          ###   ########.fr       */
+/*   Updated: 2024/07/29 12:41:09 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ Character::Character(const Character &copy) {
 	for (int i = 0; i < 4; i++) {
 		if (_inventory[i])
 			delete _inventory[i];
-		_inventory[i] = copy._inventory[i]->clone();
+		if (copy._inventory[i])
+			_inventory[i] = copy._inventory[i]->clone();
+		else
+			_inventory[i] = NULL;
 	}
 }
 

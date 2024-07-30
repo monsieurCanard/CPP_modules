@@ -6,7 +6,7 @@
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 11:34:10 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/11 11:41:03 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/29 10:54:10 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,5 @@ class WrongCat : public WrongAnimal {
 		void	makeSound() const;
 		
 };
-
 
 # endif
