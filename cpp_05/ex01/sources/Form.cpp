@@ -6,7 +6,7 @@
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 12:24:36 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/30 14:26:17 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/31 07:48:44 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	Form::beSigned(Bureaucrat &bureaucrat) {
 	if (bureaucrat.getGrade() > static_cast<unsigned int>(_gradeToSign))
 		throw Form::GradeTooLowException();
 	else {
-		std::cout << bureaucrat.getName() << " signs " << _name << std::endl;
+		std::cout << TEAL << bureaucrat.getName() << GREEN << " signs " << TEAL << _name << RESET << std::endl;
 		_signed = true;
 	}
 }
@@ -72,11 +72,17 @@ const char *Form::GradeTooLowException::what() const throw() {
 }
 
 std::ostream& operator<<(std::ostream &out, const Form &form) {
-	out << "Form " << form.getName() << " is ";
+	out		<< "Form :" << std::endl
+			<< "name : " << TEAL << form.getName() << RESET << std::endl;
+	std::cout << "Status : ";
 	if (form.getSigned())
-		out << "signed";
+		out << GREEN << "signed";
 	else
-		out << "not signed";
-	out << " and requires a grade " << form.getGradeToSign() << " to be signed and a grade " << form.getGradeToExecute() << " to be executed";
+		out << RED << "not signed";
+	std::cout << RESET << std::endl;
+	out	<< "Requires grade to be signed : " << TEAL << form.getGradeToSign()
+		<< RESET << std::endl
+		<< "Requires grade to be executed : " << TEAL << form.getGradeToExecute();
+	std::cout << std::endl;
 	return out;
 }

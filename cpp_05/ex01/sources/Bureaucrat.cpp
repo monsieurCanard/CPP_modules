@@ -6,7 +6,7 @@
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 10:21:41 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/30 14:26:55 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/31 07:10:55 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(150) {}
 
 Bureaucrat::Bureaucrat(std::string const name, unsigned int grade) : _name(name) {
-	std::cout << "Bureaucrat contructor called" << std::endl;
+	std::cout << PURPLE << "Bureaucrat contructor called" << RESET << std::endl;
 	this->setGrade(grade);
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
@@ -29,7 +29,7 @@ Bureaucrat::Bureaucrat(Bureaucrat const &copy) : _name(copy._name), _grade(copy.
 }
 
 Bureaucrat::~Bureaucrat() {
-	std::cout << "Bureaucrat destructor called" << std::endl;
+	std::cout << RED << "Bureaucrat destructor called" << RESET << std::endl;
 }
 
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &bureaucrat) {
@@ -66,12 +66,13 @@ void Bureaucrat::decrementGrade() {
 
 void	Bureaucrat::signForm(Form &form) {
 	if (this->_grade > form.getGradeToSign())
-		std::cout << this->_name << " cannot sign " << form.getName() << " because his grade is too low" << std::endl;
+		std::cout << TEAL << this->_name << RED << " cannot signs " << TEAL << form.getName() << RED << " because his grade is too low" << std::endl;
 	else if  (form.getSigned())
-		std::cout << this->_name << " cannot sign " << form.getName() << " because the form is already signed" << std::endl;
+		std::cout << TEAL << this->_name << RED << " cannot signs " << TEAL << form.getName() << RED << " because the form is already signed" << std::endl;
 	else {
 		form.beSigned(*this);
 	}
+	std::cout << RESET;
 }
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &bureaucrat) {

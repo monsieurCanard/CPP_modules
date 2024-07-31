@@ -6,7 +6,7 @@
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 10:21:41 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/30 14:27:06 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/31 06:52:12 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(150) {}
 
 Bureaucrat::Bureaucrat(std::string const name, unsigned int grade) : _name(name) {
-	std::cout << "Bureaucrat contructor called" << std::endl;
+	std::cout << PURPLE << "Bureaucrat contructor called" << RESET << std::endl;
 	this->setGrade(grade);
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
@@ -26,7 +26,7 @@ Bureaucrat::Bureaucrat(std::string const name, unsigned int grade) : _name(name)
 Bureaucrat::Bureaucrat(Bureaucrat const &copy) : _name(copy._name), _grade(copy._grade) {}
 
 Bureaucrat::~Bureaucrat() {
-	std::cout << "Bureaucrat destructor called" << std::endl;
+	std::cout << RED << "Bureaucrat destructor called" << RESET << std::endl;
 }
 
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &bureaucrat) {
@@ -45,6 +45,7 @@ std::string const Bureaucrat::getName() const {
 }
 
 void	Bureaucrat::setGrade(unsigned int grade) {
+
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	else if (grade > 150)

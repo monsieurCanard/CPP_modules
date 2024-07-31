@@ -6,42 +6,38 @@
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 11:37:58 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/31 07:11:32 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/31 08:46:16 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
-
+#include "Intern.hpp"
 
 int main(void) {
 	
-	Bureaucrat michel("michel", 1);
-	Bureaucrat jean("jean", 150);
-	Form form("Plan de scene", 1, 1);
+	Intern NEWBY;
 
-	std::cout << form << std::endl;
-	try {
-		michel.signForm(form);
-	}
-	catch (std::exception &e) {
-		std::cerr << e.what() << std::endl;
-	}
-
-	try {
-		jean.signForm(form);
-	}
-	catch (std::exception &e) {
-		std::cerr << e.what() << std::endl;
-	}
-
-	try {
-		michel.signForm(form);
-	}
-	catch (std::exception &e) {
-		std::cerr << e.what() << std::endl;
-	}
-	std::cout << std::endl << form << std::endl;
+	AForm *form1 = NEWBY.makeForm("robotomy request", "Bender");
 	std::cout << std::endl;
-	return 0;
+
+	AForm *form2 = NEWBY.makeForm("presidential pardon", "Bender");
+	std::cout << std::endl;
+
+	AForm *form3 = NEWBY.makeForm("shrubbery creation", "Bender");
+	std::cout << std::endl;
+
+	Bureaucrat BENDER("Bender", 1);
+
+	BENDER.signForm(*form1);
+	BENDER.executeForm(*form1);
+
+	BENDER.signForm(*form2);
+	BENDER.executeForm(*form2);
+
+	BENDER.signForm(*form3);
+	BENDER.executeForm(*form3);
+
+	delete form1;
+	delete form2;
+	delete form3;
 }

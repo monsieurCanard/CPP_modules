@@ -6,7 +6,7 @@
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 12:24:36 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/31 08:14:13 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/31 08:42:17 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,10 @@ const char *AForm::FormNotSignedException::what() const throw()
 	return "\033[1;31mForm isn't signed\033[0m";
 }
 
+const char *AForm::FormDoesNotExistException::what() const throw()
+{
+	return "\033[1;31mForm does not exist\033[0m";
+}
 
 std::ostream& operator<<(std::ostream &out, const AForm &form) {
 	out		<< "Form :" << std::endl

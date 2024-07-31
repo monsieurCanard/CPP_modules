@@ -6,7 +6,7 @@
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 10:16:49 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/31 07:09:56 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/07/30 15:37:03 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@
 #define TEAL "\033[38;5;49m"
 #define PURPLE "\033[38;5;129m"
 #define OLIVE "\033[38;5;58m"
-#define GREEN "\033[38;5;46m"
 #define RESET "\033[0m"
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 	private :
@@ -46,7 +45,8 @@ class Bureaucrat {
 		void				incrementGrade();
 		void				decrementGrade();
 
-		void				signForm(Form &form);
+		void				signForm(AForm &form);
+		void				executeForm(AForm const &form) const;
 
 		class GradeTooHighException : public std::exception {
 			public :
