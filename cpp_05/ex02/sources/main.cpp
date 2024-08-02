@@ -6,7 +6,7 @@
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 11:37:58 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/31 08:02:35 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/08/02 11:37:20 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int main(void) {
 
 	
 	std::cout << "Creating forms" << std::endl;
-	PresidentialPardonForm PresidentialPardon("President");
-	RobotomyRequestForm RobotomyRequest("Robot");
-	ShrubberyCreationForm ShrubberyCreation("Shrubbery");
+	PresidentialPardonForm PresidentialPardon("Boss");
+	RobotomyRequestForm RobotomyRequest("Boss");
+	ShrubberyCreationForm ShrubberyCreation("Boss");
 
 	try { 
 		std::cout << "Signing forms BOSS" << std::endl << std::endl;
@@ -74,7 +74,7 @@ int main(void) {
 		std::cerr << e.what() << std::endl;
 	}
 	try {
-		std::cout << TEAL << "Rookie " << RESET << "tries to execute forms" << std::endl;
+		std::cout << TEAL << "Rookie " << RESET << "tries to execute forms Presidential Pardon" << std::endl;
 		PresidentialPardon2.execute(Rookie);
 		RobotomyRequest2.execute(Rookie);
 		ShrubberyCreation2.execute(Rookie);

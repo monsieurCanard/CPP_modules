@@ -6,11 +6,11 @@
 #    By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/30 10:56:58 by Monsieur_Ca       #+#    #+#              #
-#    Updated: 2024/07/31 08:36:39 by Monsieur_Ca      ###   ########.fr        #
+#    Updated: 2024/08/02 12:12:01 by Monsieur_Ca      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = bureaucrat
+NAME = Intern
 
 SRC_DIR = sources/
 OBJ_DIR = obj/

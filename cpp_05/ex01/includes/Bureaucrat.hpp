@@ -6,7 +6,7 @@
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 10:16:49 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/31 07:09:56 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/08/02 09:55:13 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,19 @@ class Form;
 class Bureaucrat {
 	private :
 		std::string const	_name;
-		unsigned int		_grade;
+		size_t				_grade;
 
 	public :
 		Bureaucrat();
-		Bureaucrat(std::string const name, unsigned int grade);
+		Bureaucrat(std::string const name, size_t grade);
 		Bureaucrat(Bureaucrat const &copy);
 		~Bureaucrat();
 
 		Bureaucrat &operator=(Bureaucrat const &rhs);
 
 		std::string const	getName() const;
-		unsigned int		getGrade() const;
-		void				setGrade(unsigned int grade);
+		size_t				getGrade() const;
+		void				setGrade(size_t grade);
 
 		void				incrementGrade();
 		void				decrementGrade();

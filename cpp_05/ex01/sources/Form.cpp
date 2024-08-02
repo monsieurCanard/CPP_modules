@@ -6,7 +6,7 @@
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 12:24:36 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/31 07:48:44 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/08/02 10:11:00 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 Form::Form() : _name("Default form"), _signed(false), _gradeToSign(150), _gradeToExecute(150) {}
 
-Form::Form(const std::string name, const int gradeToSign, const int gradeToExecute)
+Form::Form(const std::string name, const size_t gradeToSign, const size_t gradeToExecute)
 	: _name(name), _signed(false),
 	_gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {
+
 		if (gradeToSign < 1 || gradeToExecute < 1)
 			throw Form::GradeTooHighException();
 		else if (gradeToSign > 150 || gradeToExecute > 150)
@@ -28,6 +29,7 @@ Form::~Form() {}
 Form::Form(const Form &copy)
 	: _name(copy.getName()), _signed(copy.getSigned()) , _gradeToSign(copy.getGradeToSign()),
 	_gradeToExecute(copy.getGradeToExecute()) {
+
 		*this = copy;
 }
 
@@ -46,16 +48,16 @@ bool Form::getSigned() const {
 	return _signed;
 }
 
-unsigned int Form::getGradeToSign() const {
+size_t Form::getGradeToSign() const {
 	return _gradeToSign;
 }
 
-unsigned int Form::getGradeToExecute() const {
+size_t Form::getGradeToExecute() const {
 	return _gradeToExecute;
 }
 
 void	Form::beSigned(Bureaucrat &bureaucrat) {
-	if (bureaucrat.getGrade() > static_cast<unsigned int>(_gradeToSign))
+	if (bureaucrat.getGrade() > _gradeToSign)
 		throw Form::GradeTooLowException();
 	else {
 		std::cout << TEAL << bureaucrat.getName() << GREEN << " signs " << TEAL << _name << RESET << std::endl;

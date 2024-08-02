@@ -6,7 +6,7 @@
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 12:24:36 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/31 08:42:17 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/08/02 12:15:45 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 AForm::AForm() : _name("Default aform"), _signed(false), _gradeToSign(150), _gradeToExecute(150) {}
 
-AForm::AForm(const std::string name, const int gradeToSign, const int gradeToExecute)
+AForm::AForm(const std::string name, const size_t gradeToSign, const size_t gradeToExecute)
 	: _name(name), _signed(false),
 	  _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
@@ -51,18 +51,18 @@ bool AForm::getSigned() const
 	return _signed;
 }
 
-unsigned int AForm::getGradeToSign() const
+size_t AForm::getGradeToSign() const
 {
 	return _gradeToSign;
 }
 
-unsigned int AForm::getGradeToExecute() const
+size_t AForm::getGradeToExecute() const
 {
 	return _gradeToExecute;
 }
 
 void	AForm::beSigned(Bureaucrat &bureaucrat) {
-	if (bureaucrat.getGrade() > static_cast<unsigned int>(_gradeToSign))
+	if (bureaucrat.getGrade() > _gradeToSign)
 		throw AForm::GradeTooLowException();
 	else {
 		std::cout << TEAL << bureaucrat.getName() << GREEN << " signs " << TEAL << _name << RESET << std::endl;
@@ -110,8 +110,8 @@ void AForm::execute(Bureaucrat const &executor) const
 {
 	if (_signed == false)
 		throw AForm::FormNotSignedException();
-	else if (executor.getGrade() > static_cast<unsigned int>(_gradeToExecute))
+	else if (executor.getGrade() > _gradeToExecute)
 		throw AForm::GradeTooLowException();
 	else
-		action(executor);
+		executor.executeForm(*this);
 }

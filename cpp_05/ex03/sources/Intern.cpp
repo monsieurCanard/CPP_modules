@@ -6,7 +6,7 @@
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 08:25:19 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/31 08:44:13 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/08/02 11:50:38 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Intern &Intern::operator=(Intern const &intern) {
 
 AForm* Intern::makeForm(std::string name, std::string target) {
 	std::string forms[3] = {"robotomy request", "presidential pardon", "shrubbery creation"};
-	AForm *form = NULL;
+	AForm *form;
 
 	for (int i = 0; i < 3; i++) {
 		if (name == forms[i]) {
@@ -42,7 +42,8 @@ AForm* Intern::makeForm(std::string name, std::string target) {
 					form = new ShrubberyCreationForm(target);
 					break;
 			}
-			std::cout << "Intern creates " << form->getName() << std::endl;
+			std::cout	<< "Intern creates " << form->getName()
+						<< " for " << target << std::endl;
 			return form;
 		}
 	}

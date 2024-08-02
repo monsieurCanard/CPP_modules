@@ -6,7 +6,7 @@
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 14:53:50 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/31 08:20:38 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/08/02 12:13:23 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 		AForm::operator=(copy);
 	return *this;
 }
-
 
 void ShrubberyCreationForm::action(Bureaucrat const &executor) const {
 

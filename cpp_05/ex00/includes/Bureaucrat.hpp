@@ -6,7 +6,7 @@
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 10:16:49 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/30 13:43:13 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/08/02 12:24:57 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,32 @@
 #define OLIVE "\033[38;5;58m"
 #define RESET "\033[0m"
 
+/**
+ * ! Why use exceptions?
+ * 
+ * Les exceptions permettent de separer le code de gestion d'erreur du code de traitement normal.
+ * Permet de gerer les erreurs de maniere centralisee.
+ * ! Garantie le nettoyage des ressources.
+ */
+
+
+
 class Bureaucrat {
 	private :
 		std::string const	_name;
-		unsigned int		_grade;
-		void				setGrade(unsigned int grade);
+		size_t				_grade;
+		void				setGrade(size_t grade);
 
 	public :
 		Bureaucrat();
-		Bureaucrat(std::string const name, unsigned int grade);
+		Bureaucrat(std::string const name, size_t grade);
 		Bureaucrat(Bureaucrat const &copy);
 		~Bureaucrat();
 
 		Bureaucrat &operator=(Bureaucrat const &rhs);
 
 		std::string const	getName() const;
-		unsigned int		getGrade() const;
+		size_t				getGrade() const;
 
 		void				incrementGrade();
 		void				decrementGrade();
