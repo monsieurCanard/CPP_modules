@@ -44,6 +44,12 @@ int main(int, char**)
         std::cerr << e.what() << '\n';
     }
 
+    try {
+        std::cout << "numbers[0]: " << numbers[0] << std::endl;
+    }
+    catch (std::exception &e) {
+        std::cerr << e.what() << std::endl;
+    }
     for (int i = 0; i < MAX_VAL; i++)
     {
         numbers[i] = rand();

@@ -6,7 +6,7 @@
 #    By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/30 10:56:58 by Monsieur_Ca       #+#    #+#              #
-#    Updated: 2024/07/31 17:26:01 by Monsieur_Ca      ###   ########.fr        #
+#    Updated: 2024/08/05 16:05:30 by Monsieur_Ca      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,7 @@ SRC_DIR = sources/
 OBJ_DIR = obj/
 INC_DIR = includes/
 
-SRC	=	$(SRC_DIR)Array.cpp \
-		$(SRC_DIR)main.cpp
+SRC	=	$(SRC_DIR)main.cpp
 		
 
 OBJ = $(SRC:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)

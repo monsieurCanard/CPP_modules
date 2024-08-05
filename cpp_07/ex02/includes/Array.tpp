@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Array.cpp                                          :+:      :+:    :+:   */
+/*   Array.tpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 17:20:29 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/31 17:40:50 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/08/05 16:09:00 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,3 @@ template <typename T>
 const char *Array<T>::OutOfLimitsException::what() const throw() {
 	return "Error: Out of limits";
 }
-template class Array<int>;

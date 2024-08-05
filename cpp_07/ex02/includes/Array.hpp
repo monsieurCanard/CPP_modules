@@ -6,7 +6,7 @@
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 17:17:22 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/07/31 17:38:12 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/08/05 16:07:27 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
-
 
 template <typename T>
 
@@ -45,6 +44,7 @@ class Array {
 
 };
 
+#include "Array.tpp"
 
 
 #endif
