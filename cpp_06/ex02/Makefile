@@ -6,11 +6,11 @@
 #    By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/30 10:56:58 by Monsieur_Ca       #+#    #+#              #
-#    Updated: 2024/07/31 16:18:02 by Monsieur_Ca      ###   ########.fr        #
+#    Updated: 2024/08/05 10:29:55 by Monsieur_Ca      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Base
+NAME = identifier
 
 SRC_DIR = sources/
 OBJ_DIR = obj/

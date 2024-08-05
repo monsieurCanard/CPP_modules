@@ -1,36 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Template.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/31 16:47:19 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/08/05 13:29:05 by Monsieur_Ca      ###   ########.fr       */
+/*   Created: 2024/08/05 13:25:42 by Monsieur_Ca       #+#    #+#             */
+/*   Updated: 2024/08/05 13:26:05 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef TEMPLATE_HPP
+# define TEMPLATE_HPP
+
 #include <iostream>
 #include <string>
+#include <concepts>
 
-template <typename T, typename Func>
-void iter(T *array, size_t size, Func func) {
-	for (size_t i = 0; i < size; i++)
-		func(array[i]);
+template <typename T>
+
+void swap(T &a, T &b)
+{
+	T tmp = a;
+	a = b;
+	b = tmp;
 }
 
 template <typename T>
-void	print(T const &x) {
-	std::cout << x << std::endl;
+
+T min(T a, T b)
+{
+	return (a < b ? a : b);
 }
 
-int main(void) {
-	int intArray[] = {1, 2, 3, 4, 5};
-	std::string stringArray[] = {"Hello", "World", "!"};
+template <typename T>
 
-	std::cout << "intArray: ";
-	iter(intArray, 5, print<int>);
-
-	std::cout << std::endl << "stringArray: ";
-	iter(stringArray, 3, print<std::string>);
+T max(T a, T b)
+{
+	return (a > b ? a : b);
 }
+
+#endif

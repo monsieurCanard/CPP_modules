@@ -6,7 +6,7 @@
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 12:24:36 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/08/02 10:11:00 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/08/05 14:55:26 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,11 @@ bool Form::getSigned() const {
 	return _signed;
 }
 
-size_t Form::getGradeToSign() const {
+const size_t Form::getGradeToSign() const {
 	return _gradeToSign;
 }
 
-size_t Form::getGradeToExecute() const {
+const size_t Form::getGradeToExecute() const {
 	return _gradeToExecute;
 }
 

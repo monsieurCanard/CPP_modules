@@ -6,7 +6,7 @@
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 10:21:41 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/08/02 09:44:15 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/08/05 14:54:46 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat const &bureaucrat) {
 	return *this;
 }
 
-size_t Bureaucrat::getGrade() const
+size_t const Bureaucrat::getGrade() const
 {
 	return this->_grade;
 }

@@ -6,7 +6,7 @@
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 11:54:59 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/08/02 09:56:52 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/08/05 14:55:16 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ class Form {
 
 		const std::string	getName() const;
 		bool				getSigned() const;
-		size_t		getGradeToSign() const;
-		size_t		getGradeToExecute() const;
+		const size_t		getGradeToSign() const;
+		const size_t		getGradeToExecute() const;
 
 		void beSigned(Bureaucrat &bureaucrat);
 		
