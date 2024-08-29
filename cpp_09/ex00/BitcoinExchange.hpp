@@ -6,7 +6,7 @@
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 11:48:45 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/08/08 15:08:08 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/08/29 12:52:52 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include <map>
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include <cstdlib>
 
@@ -31,7 +32,6 @@ class BitcoinExchange {
 
 		std::map<std::string, double> getBitcoin() const;
 		std::map<std::string, double> readFile(const char *file_name, std::string separator);
-
 
 
 

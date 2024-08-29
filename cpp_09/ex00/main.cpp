@@ -6,31 +6,57 @@
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 12:11:51 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/08/08 15:39:00 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/08/29 14:49:32 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-void displayPrice(std::map<std::string, double> user_bitcoin, std::map<std::string, double> value_bitcoin)
+std::string trimWhiteSpaces(std::string &line)
 {
-	std::map<std::string, double>::iterator it;
+	size_t start = line.find_first_not_of(" \t");
+	size_t end = line.find_last_not_of(" \t");
+	return line.substr(start, end - start + 1);
+}
 
-	for (it = user_bitcoin.begin(); it != user_bitcoin.end(); it++)
+void displayPrice(std::map<std::string, double> value_bitcoin, char **av)
+{
+	std::ifstream file(av[1]);
+	if (!file.is_open())
+		throw BitcoinExchange::CouldNotOpenFile();
+
+	std::string line;
+
+	std::getline(file, line);
+	while (std::getline(file, line))
 	{
-		if (it->second < 0)
-			std::cout << it->first << " : " << it->second << " => " << "Error: Not a positive number" << std::endl;
-		else if (it->second > 1000)
+		std::string date = line.substr(0, line.find("|"));
+		if (date.length() == line.length()) {
+			std::cout << "Error: Bad input ==> " << date << std::endl;
+			continue;
+		}
+		std::string value = line.substr(line.find("|") + 1);
+
+		date = trimWhiteSpaces(date);
+		value = trimWhiteSpaces(value);
+
+		double nb_bitcoin = std::strtod(value.c_str(), NULL);
+		if (nb_bitcoin < 0)
+			std::cout << "Error: Not a positive number" << std::endl;
+		else if (nb_bitcoin > 1000)
 			std::cout << "Error: Too large number" << std::endl;
-		else if (it->second == 0)
-			std::cout << "Error: Bad input =>" << it->first << std::endl;
-		else if (value_bitcoin[it->first] == 0) {
-			std::cout	<< value_bitcoin.lower_bound(it->first)->first << " : " << value_bitcoin.lower_bound(it->first)->second
-						<< " = " << it->second * value_bitcoin.lower_bound(it->first)->second << std::endl;}
-		else
-			std::cout	<< it->first << " : " << it->second << " = " << it->second * value_bitcoin[it->first] << std::endl;
+		else if (value_bitcoin.find(date) != value_bitcoin.end())
+			std::cout << date << " => " << nb_bitcoin << " = " << nb_bitcoin * value_bitcoin[date] << std::endl;
+		else {
+			std::map<std::string, double>::iterator it = value_bitcoin.lower_bound(date);
+			if (it != value_bitcoin.begin())
+				--it;
+
+			std::cout << date << " => " << nb_bitcoin << " = " << nb_bitcoin * it->second << std::endl;
+		}
 	}
 }
+
 int main(int ac, char **av) {
 
 	if (ac != 2) {
@@ -40,10 +66,8 @@ int main(int ac, char **av) {
 	
 	BitcoinExchange exchange;
 
-	
-	std::map<std::string, double> user_bitcoin = exchange.readFile(av[1], "|");
 	std::map<std::string, double> value_bitcoin = exchange.readFile("data.csv", ",");
 
-	displayPrice(user_bitcoin, value_bitcoin);
+	displayPrice(value_bitcoin, av);
 	return 0;
 }
