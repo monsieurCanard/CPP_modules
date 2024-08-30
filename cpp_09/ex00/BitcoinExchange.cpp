@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 11:50:54 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/08/29 16:31:21 by anthony          ###   ########.fr       */
+/*   Updated: 2024/08/30 18:49:52 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,12 @@ std::string	BitcoinExchange::trimWhiteSpaces(std::string &line)
 	return line.substr(start, end - start + 1);
 }
 
-std::map<std::string, double>	BitcoinExchange::readData(const char *file_name, std::string separator)
+void	BitcoinExchange::readData(const char *file_name, std::string separator)
 {
-	std::map<std::string, double> data_file;
 
 	std::ifstream file(file_name);
 	if (!file.is_open())
-		throw BitcoinExchange::CouldNotOpenFile();
+		throw CouldNotOpenFile();
 	
 	std::string line;
 	
@@ -59,26 +58,29 @@ std::map<std::string, double>	BitcoinExchange::readData(const char *file_name, s
 		key = trimWhiteSpaces(key);
 		value = trimWhiteSpaces(value);
 
-		data_file.insert(std::pair<std::string, double>(key, std::strtod(value.c_str(), NULL)));
+		if (key.length() == line.length() || value.length() == line.length())
+			throw CouldNotOpenFile();
+
+		_value_bitcoin.insert(std::pair<std::string, double>(key, std::strtod(value.c_str(), NULL)));
 	}
-	return data_file;
 }
 
 
-void	BitcoinExchange::getAndDisplay(std::map<std::string, double> value_bitcoin, char **av)
+void	BitcoinExchange::getAndDisplay(char **av)
 {
 	std::ifstream file(av[1]);
 	if (!file.is_open())
-		throw BitcoinExchange::CouldNotOpenFile();
+		throw CouldNotOpenFile();
 
 	std::string line;
-
 	std::getline(file, line);
 	while (std::getline(file, line))
 	{
 		std::string date = line.substr(0, line.find("|"));
 		if (date.length() == line.length()) {
-			std::cout << "Error: Bad input ==> " << date << std::endl;
+			std::cout	<< RED << "Error: Bad input ==> "
+						<< ORANGE << date
+						<< RESET << std::endl;
 			continue;
 		}
 		std::string value = line.substr(line.find("|") + 1);
@@ -87,30 +89,39 @@ void	BitcoinExchange::getAndDisplay(std::map<std::string, double> value_bitcoin,
 		value = trimWhiteSpaces(value);
 
 		try {
-			displayPrice(value_bitcoin, value, date);
+			displayPrice(value, date);
 		} catch (const std::exception &e) {
 			std::cerr << e.what() << std::endl;
 		}
 	}
 }
 
-void	BitcoinExchange::displayPrice(std::map<std::string, double> value_bitcoin, std::string &value, std::string &date) {
+void	BitcoinExchange::displayPrice(std::string &value, std::string &date) {
 
+		std::map<std::string, double>::iterator it;
+		double									final_rate;
 		double nb_bitcoin = std::strtod(value.c_str(), NULL);
 
 		if (nb_bitcoin < 0)
-			throw BitcoinExchange::NotPositifNumber();
-		else if (nb_bitcoin > 1000)
-			throw BitcoinExchange::TooLargeNumber();
-		else if (value_bitcoin.find(date) != value_bitcoin.end())
-			std::cout << date << " => " << nb_bitcoin << " = " << nb_bitcoin * value_bitcoin[date] << std::endl;
-		else {
-			std::map<std::string, double>::iterator it = value_bitcoin.lower_bound(date);
-			if (it != value_bitcoin.begin()) {
-				it--;
-				std::cout << date << " => " << nb_bitcoin << " = " << nb_bitcoin * it->second << std::endl;
-			}
-			else
-				std::cout << "Error: No data or lower data found for " << date << std::endl;
+			throw NotPositifNumber();
+		if (nb_bitcoin > 1000)
+			throw TooLargeNumber();
+
+		if (_value_bitcoin.find(date) != _value_bitcoin.end())
+			final_rate = nb_bitcoin * _value_bitcoin[date];
+		else
+		{
+			it = _value_bitcoin.lower_bound(date);
+			if (it == _value_bitcoin.begin())
+				throw LowerDataNotFound();
+			it--;
+			final_rate = nb_bitcoin * it->second;
 		}
+			
+		std::cout	<< ORANGE << date
+					<< PURPLE << " => "
+					<< ORANGE << nb_bitcoin
+					<< PURPLE << " = "
+					<< TEAL << nb_bitcoin * final_rate
+					<< RESET << std::endl;
 }

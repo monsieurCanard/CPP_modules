@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 09:13:32 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/08/30 16:25:48 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/08/30 17:53:20 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &other) {
 	return *this;
 }
 
+/**
+ * ! DISPLAY
+ */
+
 void PmergeMe::displayNumbersBefore()
 {
 	std::cout << std::endl
@@ -46,7 +50,15 @@ void PmergeMe::displayNumbersBefore()
 	std::cout << std::endl;
 }
 
+void PmergeMe::displayTime(long time_usec, std::string &container_type)
+{
+	double time = time_usec;
+	std::cout << "Time to process a range of " << _numbers.size() << " elements with std::" << container_type << ": " << time << "us" << std::endl;
+}
 
+/**
+ * ! INIT
+ */
 void	PmergeMe::initAllNumbers(int ac, char **av) {
 	
 	std::string tmp;
@@ -58,12 +70,6 @@ void	PmergeMe::initAllNumbers(int ac, char **av) {
 			putNumbersIntoVector(_numbers, av[i]);
 		}
 	}
-}
-
-void PmergeMe::displayTime(std::clock_t start, std::clock_t end, std::string &container_type)
-{
-	double time = (end - start);
-	std::cout << "Time to process a range of " << _numbers.size() << " elements with std::" << container_type << ": " << time << "us" << std::endl;
 }
 
 void	PmergeMe::putNumbersIntoVector(std::vector<int> &tab, char *numbers) {
@@ -92,9 +98,14 @@ bool PmergeMe::comparePair(int first, int second) {
 	return false;
 }
 
+/**
+ * ! MERGE (overload for list and vector)
+ */
+
 void PmergeMe::mergeInsertSortList(std::list<std::pair<int, int> > &container)
 {
 	struct timeval start;
+	std::string type = "list";
 
 	displayNumbersBefore();
 	gettimeofday(&start, NULL);
@@ -109,19 +120,16 @@ void PmergeMe::mergeInsertSortList(std::list<std::pair<int, int> > &container)
 			i++;
 		}
 		else
-		{
 			container.push_back(std::make_pair(_numbers[i], -1));
-			i++;
-		}
 	}
 	container.sort();
-	std::string type = "list";
 	finalPhase(container, type, start);
 }
 
 void PmergeMe::mergeInsertSortList(std::vector<std::pair<int, int> > &container)
 {
-	struct timeval start;
+	struct timeval	start;
+	std::string		type = "vector";
 
 	displayNumbersBefore();
 	gettimeofday(&start, NULL);
@@ -136,12 +144,8 @@ void PmergeMe::mergeInsertSortList(std::vector<std::pair<int, int> > &container)
 			i++;
 		}
 		else
-		{
 			container.push_back(std::make_pair(_numbers[i], -1));
-			i++;
-		}
 	}
 	std::sort(container.begin(), container.end());
-	std::string type = "vector";
 	finalPhase(container, type, start);
 }

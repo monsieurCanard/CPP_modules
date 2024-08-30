@@ -6,7 +6,7 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 12:11:51 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/08/29 16:24:11 by anthony          ###   ########.fr       */
+/*   Updated: 2024/08/30 18:50:00 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,17 @@ int main(int ac, char **av) {
 
 	if (ac != 2) {
 		std::cerr << "Usage: ./bitcoin [file_name]" << std::endl;
-		return 1;
+		return FAILURE;
 	}
 	
 	BitcoinExchange exchange;
 
-	std::map<std::string, double> value_bitcoin = exchange.readData("data.csv", ",");
-
 	try {
-		exchange.getAndDisplay(value_bitcoin, av); }
-	catch (const std::exception &e) {
+		exchange.readData("data.csv", ",");
+		exchange.getAndDisplay(av);
+	} catch (const std::exception &e) {
 		std::cerr << e.what() << std::endl;
-		return 1;
+		return FAILURE;
 	}
-	return 0;
+	return SUCCESS;
 }

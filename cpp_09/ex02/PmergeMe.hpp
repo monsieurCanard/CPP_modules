@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 09:14:23 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/08/30 16:23:32 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/08/30 17:40:37 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,8 @@
 #include <cctype>
 #include <algorithm>
 
-
 #define SUCCESS 0
 #define FAILURE 1
-
 
 class PmergeMe {
 
@@ -35,7 +33,7 @@ class PmergeMe {
 		std::vector<int>				_numbers;
 
 		void	putNumbersIntoVector(std::vector<int> &tab, char *str);
-		void	displayTime(std::clock_t start, std::clock_t end, std::string &container_type);
+		void	displayTime(long time_usec, std::string &container_type);
 		void	displayNumbersBefore();
 
 		template <typename Container>
@@ -46,6 +44,7 @@ class PmergeMe {
 
 		template <typename Container>
 		void	finalPhase(Container &container, std::string &container_type, timeval start);
+		bool	comparePair(int first, int second);
 
 	public :
 		PmergeMe();
@@ -53,12 +52,7 @@ class PmergeMe {
 		PmergeMe(const PmergeMe &other);
 		PmergeMe &operator=(const PmergeMe &other);
 
-		bool	comparePair(int first, int second);
-
 		void	initAllNumbers(int ac, char **av);
-		
-		
-
 		void	mergeInsertSortList(std::list<std::pair<int, int> > &container);
 		void	mergeInsertSortList(std::vector<std::pair<int, int> > &container);
 
@@ -86,6 +80,7 @@ template <typename Container>
 void PmergeMe::displayNumbersAfter(Container &container)
 {
 	int display_max = 5;
+
 	std::cout << "AFTER : ";
 	for (typename Container::const_iterator it = container.begin(); it != container.end(); it++)
 	{
@@ -111,18 +106,13 @@ void PmergeMe::insertSort(Container &container)
 		if (tmp == -1)
 			continue;
 		typename Container::iterator it2 = it;
-		it2++;
-		while (it2 != container.end() && tmp > it2->first)
-		{
-			it2++;
-		}
+		for (it2 = it; it2 != container.end() && tmp > it2->first; ++it2)
+			;
 		temp.push_back(std::make_pair(tmp, -1));
 		it->second = -1;
 	}
 	for (typename std::vector<std::pair<int, int> >::iterator it = temp.begin(); it != temp.end(); ++it)
-	{
 		container.insert(std::upper_bound(container.begin(), container.end(), *it), *it);
-	}
 }
 
 template <typename Container>
@@ -144,5 +134,5 @@ void PmergeMe::finalPhase(Container &container, std::string &container_type, tim
 
 	displayNumbersAfter(container);
 	gettimeofday(&end, NULL);
-	displayTime(start.tv_usec, end.tv_usec, container_type);
+	displayTime(end.tv_usec - start.tv_usec, container_type);
 }
