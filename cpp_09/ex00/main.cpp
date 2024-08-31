@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 12:11:51 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/08/30 18:50:00 by anthony          ###   ########.fr       */
+/*   Updated: 2024/08/31 12:22:35 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(int ac, char **av) {
 	BitcoinExchange exchange;
 
 	try {
-		exchange.readData("data.csv", ",");
+		exchange.readData(DATA_FILE, ",");
 		exchange.getAndDisplay(av);
 	} catch (const std::exception &e) {
 		std::cerr << e.what() << std::endl;

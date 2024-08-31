@@ -6,7 +6,7 @@
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 11:50:54 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/08/31 09:41:16 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/08/31 12:38:09 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ bool	BitcoinExchange::lineIsValid(std::string &key, std::string &value, const st
 {
 	std::istringstream	iss(value);
 	float				floatValue;
+
 	iss >> floatValue;
 
 	if (iss.fail() || !iss.eof())
@@ -135,8 +136,8 @@ void	BitcoinExchange::getAndDisplay(char **av)
 void	BitcoinExchange::displayPrice(std::string &value, std::string &date) {
 
 		std::map<std::string, double>::iterator it;
-		float									final_rate;
-		float nb_bitcoin = std::strtod(value.c_str(), NULL);
+		float									final_price;
+		float									nb_bitcoin = std::strtod(value.c_str(), NULL);
 
 		if (nb_bitcoin < 0)
 			throw NotPositifNumber();
@@ -146,20 +147,19 @@ void	BitcoinExchange::displayPrice(std::string &value, std::string &date) {
 			throw TooLargeNumber();
 
 		if (_value_bitcoin.find(date) != _value_bitcoin.end())
-			final_rate = nb_bitcoin * _value_bitcoin[date];
+			final_price = nb_bitcoin * _value_bitcoin[date];
 		else
 		{
 			it = _value_bitcoin.lower_bound(date);
 			if (it == _value_bitcoin.begin())
 				throw LowerDataNotFound();
 			it--;
-			final_rate = nb_bitcoin * it->second;
+			final_price = nb_bitcoin * it->second;
 		}
-
 		std::cout	<< ORANGE << date
 					<< PURPLE << " => "
 					<< ORANGE << nb_bitcoin
 					<< PURPLE << " = "
-					<< TEAL << nb_bitcoin * final_rate
+					<< TEAL << final_price
 					<< RESET << std::endl;
 }

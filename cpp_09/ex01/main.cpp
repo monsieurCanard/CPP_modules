@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 16:32:33 by anthony           #+#    #+#             */
-/*   Updated: 2024/08/29 17:45:52 by anthony          ###   ########.fr       */
+/*   Updated: 2024/08/31 10:56:11 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,16 @@ int main(int ac, char **av) {
 	
 	if (ac < 2) {
 		std::cout << "Usage: ./rpn \"[expression]\"" << std::endl;
-		return 1;
+		return FAILURE;
 	}
+
 	RPN calculator;
 
 	try {
 		calculator.calculator(av[1]);
 	} catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
-		return 1;
+		std::cerr << e.what() << std::endl;
+		return FAILURE;
 	}
+	return SUCCESS;
 }
