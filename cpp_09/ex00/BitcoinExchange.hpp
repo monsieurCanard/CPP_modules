@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 11:48:45 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/08/30 18:50:22 by anthony          ###   ########.fr       */
+/*   Updated: 2024/08/31 09:41:03 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 #define SUCCESS 0
 #define FAILURE 1
+
+
+#define FLOAT_MAX 1000
+#define FLOAT_MIN 0
+
 
 #define ORANGE "\033[38;5;208m"
 #define RED "\033[38;5;196m"
@@ -28,16 +33,20 @@
 #include <iomanip>
 #include <fstream>
 #include <cstdlib>
+#include <sstream>
+#include <typeinfo>
+#include <cfloat>
 
 
 class BitcoinExchange {
 
 	private :
-		std::map<std::string, double> _bitcoin;
-		std::map<std::string, double> _value_bitcoin;
+		std::map<std::string, double>	_bitcoin;
+		std::map<std::string, double>	_value_bitcoin;
 
 		void		displayPrice(std::string &value, std::string &date);
 		std::string	trimWhiteSpaces(std::string &line);
+		bool		lineIsValid(std::string &key, std::string &value, const std::string &line);
 	
 	public :
 		BitcoinExchange();
@@ -45,15 +54,22 @@ class BitcoinExchange {
 		BitcoinExchange(const BitcoinExchange &copy);
 		BitcoinExchange &operator=(const BitcoinExchange &copy);
 
-		void readData(const char *file_name, std::string separator);
-		std::map<std::string, double> getBitcoin() const;
-		void getAndDisplay(char **av);
+		std::map<std::string, double>	getBitcoin() const;
+		void							getAndDisplay(char **av);
+		void							readData(const char *file_name, std::string separator);
 };
 
 class NotPositifNumber : public std::exception {
 	public :
 		virtual const char *what() const throw() {
 			return RED"Error: Not a positive number\033[0m";
+		}
+};
+
+class EgalZero : public std::exception {
+	public :
+		virtual const char *what() const throw() {
+			return RED"Error: Number can't be 0\033[0m";
 		}
 };
 
@@ -74,6 +90,6 @@ class NotPositifNumber : public std::exception {
 	class LowerDataNotFound : public std::exception {
 	public :
 		virtual const char *what() const throw() {
-			return RED"Error: Data rate for this date not found\033[0m";
+			return RED"Error: No exchange rate for this date\033[0m";
 		}
 };

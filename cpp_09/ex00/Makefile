@@ -6,7 +6,7 @@
 #    By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/08 15:18:51 by Monsieur_Ca       #+#    #+#              #
-#    Updated: 2024/08/08 15:24:59 by Monsieur_Ca      ###   ########.fr        #
+#    Updated: 2024/08/31 09:56:41 by Monsieur_Ca      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CXX) $(OBJ) -o $(NAME)
-	echo "Program Ready !!"
+	@echo "Program Ready !!"
 
 $(OBJ_DIR)%.o: %.cpp $(HEADERS)
 	mkdir -p $(OBJ_DIR)
