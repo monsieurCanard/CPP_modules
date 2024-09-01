@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 11:50:54 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/08/31 12:38:09 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/08/31 16:46:25 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,7 @@ bool	BitcoinExchange::lineIsValid(std::string &key, std::string &value, const st
 	{
 		return false;
 	}
-	if ((!line.empty() && key.length() == line.length() )
-		|| (!line.empty() && value.length() == line.length())
-		|| key.empty() || value.empty()
+	if (key.empty() || value.empty() || line.empty()
 		|| key.length() != 10)
 		return false;
 	return true;
@@ -143,7 +141,7 @@ void	BitcoinExchange::displayPrice(std::string &value, std::string &date) {
 			throw NotPositifNumber();
 		if (nb_bitcoin == 0)
 			throw EgalZero();
-		if (nb_bitcoin >= 1000)
+		if (nb_bitcoin > 1000)
 			throw TooLargeNumber();
 
 		if (_value_bitcoin.find(date) != _value_bitcoin.end())
