@@ -6,13 +6,20 @@
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 11:50:54 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/08/31 16:46:25 by anthony          ###   ########.fr       */
+/*   Updated: 2024/09/02 10:53:21 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange() {}
+BitcoinExchange::BitcoinExchange() {
+	try {
+		readData(DATA_FILE, ",");
+	} catch (const std::exception &e) {
+		std::cerr << e.what() << std::endl;
+		exit (FAILURE);
+	}
+}
 
 BitcoinExchange::~BitcoinExchange() {}
 
@@ -25,12 +32,19 @@ BitcoinExchange	&BitcoinExchange::operator=(const BitcoinExchange &copy) {
 		if (!this->_bitcoin.empty())
 			this->_bitcoin.clear();
 		this->_bitcoin = copy._bitcoin;
+		if (!this->_value_bitcoin.empty())
+			this->_value_bitcoin.clear();
+		this->_value_bitcoin = copy._value_bitcoin;
 	}
 	return *this;
 }
 
 std::map<std::string, double>	BitcoinExchange::getBitcoin() const {
 	return _bitcoin;
+}
+
+std::map<std::string, double>	BitcoinExchange::getValueBitcoin() const {
+	return _value_bitcoin;
 }
 
 /**
@@ -76,6 +90,8 @@ void	BitcoinExchange::readData(const char *file_name, std::string separator)
 	
 	// * Pour sauter la première ligne
 	std::getline(file, line);
+	if (line.empty())
+		throw CouldNotOpenFile();
 	while (std::getline(file, line))
 	{
 		std::string key = line.substr(0, line.find(separator));
@@ -102,7 +118,10 @@ void	BitcoinExchange::getAndDisplay(char **av)
 		throw CouldNotOpenFile();
 
 	std::string line;
+
 	std::getline(file, line);
+	if (line.empty())
+		throw InvalidInputFile();
 	while (std::getline(file, line))
 	{
 		if (line.empty())
@@ -139,8 +158,6 @@ void	BitcoinExchange::displayPrice(std::string &value, std::string &date) {
 
 		if (nb_bitcoin < 0)
 			throw NotPositifNumber();
-		if (nb_bitcoin == 0)
-			throw EgalZero();
 		if (nb_bitcoin > 1000)
 			throw TooLargeNumber();
 

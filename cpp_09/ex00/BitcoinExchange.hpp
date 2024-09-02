@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 11:48:45 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/08/31 12:36:47 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/09/02 10:54:39 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ class BitcoinExchange {
 		std::map<std::string, double>	_bitcoin;
 		std::map<std::string, double>	_value_bitcoin;
 
+		void		readData(const char *file_name, std::string separator);
 		void		displayPrice(std::string &value, std::string &date);
 		std::string	trimWhiteSpaces(std::string &line);
 		bool		lineIsValid(std::string &key, std::string &value, const std::string &line);
@@ -55,21 +56,18 @@ class BitcoinExchange {
 		BitcoinExchange &operator=(const BitcoinExchange &copy);
 
 		std::map<std::string, double>	getBitcoin() const;
+		std::map<std::string, double>	getValueBitcoin() const;
 		void							getAndDisplay(char **av);
-		void							readData(const char *file_name, std::string separator);
 };
 
-class NotPositifNumber : public std::exception {
+/**
+ * ! EXCEPTIONS
+ */
+
+	class NotPositifNumber : public std::exception {
 	public :
 		virtual const char *what() const throw() {
 			return RED"Error: Not a positive number\033[0m";
-		}
-};
-
-class EgalZero : public std::exception {
-	public :
-		virtual const char *what() const throw() {
-			return RED"Error: Number of bitcoin can't be 0\033[0m";
 		}
 };
 
@@ -86,17 +84,16 @@ class EgalZero : public std::exception {
 			return RED"Error: Invalid Data File\033[0m";
 		}
 };
+	class InvalidInputFile : public std::exception {
+	public :
+		virtual const char *what() const throw() {
+			return RED"Error: Invalid Input File\033[0m";
+		}
+};
 
 	class LowerDataNotFound : public std::exception {
 	public :
 		virtual const char *what() const throw() {
 			return RED"Error: No exchange rate for this date\033[0m";
-		}
-};
-
-	class InvalidResult : public std::exception {
-	public :
-		virtual const char *what() const throw() {
-			return RED"Error: Final price invalid\033[0m";
 		}
 };

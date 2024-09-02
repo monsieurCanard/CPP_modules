@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 16:36:46 by anthony           #+#    #+#             */
-/*   Updated: 2024/08/31 12:41:18 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/09/02 11:58:57 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	RPN::popOperandAndVerif() {
 	ss << _operator.top();
 	_operator.pop();
 	if (!(ss >> operand))
-		throw std::runtime_error(RED "Error : Invalid operand (INT ONLY)\033[0m");
+		throw InvalidOperator();
 	ss.clear();
 
 	return operand;
@@ -50,15 +50,17 @@ void	RPN::makeOperation(std::string &token) {
 	std::stringstream	ss;
 
 /**
- * ! Verification de la stack, de l'overflow et de la division par zero
+ * ! Verification de la stack et de la division par zero
  */
 	if (_operator.size() < 2)
-		throw std::runtime_error(RED "Error : Invalid Expression, not enough operand\033[0m");
-
+		throw InvalidExpression();
 	operand1 = popOperandAndVerif();
 	if (token == "/" && operand1 == 0)
-		throw std::runtime_error(RED"Error : Division by zero\033[0m");
+		throw DivisionByZero();
 
+/**
+ * ! Pop element de la stack et verif overflow
+ */
 	operand2 = popOperandAndVerif();
 
 /**
@@ -81,40 +83,46 @@ void	RPN::makeOperation(std::string &token) {
 			result = operand2 % operand1;
 			break;
 		default:
-			throw std::runtime_error(RED"Error : Invalid operator\033[0m");
+			throw InvalidOperator();
 	}
 
+/**
+ * ! Push du resultat dans la stack
+ */
 	std::stringstream res;
 	res << result;
 	_operator.push(res.str());
 }
 
-void RPN::calculator(char *operation) {
+void RPN::calculator(std::string &op) {
 	
-	std::string		op(operation);
-	size_t			start_pos = 0;
-	size_t			end_pos = 0;
 	std::string		token;
 
-	if (operation[0] == '\0')
-		throw std::runtime_error(RED"Error : Empty string\033[0m");
+	size_t			start_pos = 0;
+	size_t			end_pos = 0;
+
+	if (op.empty())
+		throw EmptyOperation();
+
 	while (start_pos < op.length()) {
 		
 		end_pos = op.find(" ", start_pos);
-		if (end_pos == std::string::npos) {
+		if (end_pos == std::string::npos)
+		{
 			token = op.substr(start_pos, op.length() - start_pos);
 			makeOperation(token);
 			break ;
 		}
 		token = op.substr(start_pos, end_pos - start_pos);
-		start_pos = end_pos + 1;
 
 		if (isdigit(token[0]) || (token[0] == '-' && isdigit(token[1])))
 			_operator.push(token);
 		else
 			makeOperation(token);
+		
+		start_pos = end_pos + 1;
 	}
 	if (_operator.size() != 1)
-		throw std::runtime_error(RED"Error : Invalid Expression\033[0m");
+		throw InvalidExpression();
 	std::cout << TEAL << _operator.top() << RESET << std::endl;
 }

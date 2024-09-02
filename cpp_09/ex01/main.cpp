@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 16:32:33 by anthony           #+#    #+#             */
-/*   Updated: 2024/08/31 10:56:11 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/09/02 12:10:28 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@ int main(int ac, char **av) {
 		return FAILURE;
 	}
 
-	RPN calculator;
+	RPN			calculator;
+	std::string expression = av[1];
 
 	try {
-		calculator.calculator(av[1]);
+		calculator.calculator(expression);
 	} catch (std::exception &e) {
 		std::cerr << e.what() << std::endl;
 		return FAILURE;

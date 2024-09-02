@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 16:37:00 by anthony           #+#    #+#             */
-/*   Updated: 2024/08/31 10:57:06 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/09/02 11:58:54 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,40 @@ class RPN {
 		RPN(const RPN &other);
 		RPN &operator=(const RPN &other);
 
-		void	calculator(char *operation);
+		void	calculator(std::string &op);
 
+};
+
+	class EmptyOperation : public std::exception {
+	public :
+		virtual const char *what() const throw() {
+			return (RED "Error : Empty operation\033[0m");
+		}
+};
+
+	class InvalidExpression : public std::exception {
+	public :
+		virtual const char *what() const throw() {
+			return (RED "Error : Invalid Expression\033[0m");
+		}
+};
+
+	class DivisionByZero : public std::exception {
+	public :
+		virtual const char *what() const throw() {
+			return (RED "Error : Division by zero\033[0m");
+		}
+};
+	class ArgNotANumber : public std::exception {
+	public :
+		virtual const char *what() const throw() {
+			return (RED "Error : Argument is not a number\033[0m");
+		}
+};
+
+	class InvalidOperator : public std::exception {
+	public :
+		virtual const char *what() const throw() {
+			return (RED "Error : Invalid operator\033[0m");
+		}
 };
